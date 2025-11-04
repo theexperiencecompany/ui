@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gaia",
+  "homepage": "https://ui.gaia.com",
+  "items": [
+    {
+      "name": "raised-button",
+      "type": "registry:ui",
+      "title": "Raised Button",
+      "description": "A beautiful 3D raised button with customizable colors and dynamic text contrast.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/raised-button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/utils/colorUtils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}

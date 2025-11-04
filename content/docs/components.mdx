@@ -1,0 +1,28 @@
+---
+title: "Components"
+description: "Here you can find all the components available in the library. We are working on adding more components."
+---
+
+import { docsConfig } from "@/config/site";
+import Link from "next/link";
+
+export const ComponentsList = () => {
+  const componentsSection = docsConfig.sidebarNav.find(
+    (section) => section.title === "Components"
+  );
+  const components = componentsSection?.items || [];
+
+return (
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+  {components.map((component, index) => (
+    <Link key={index} href={component.href}>
+      <div className="font-normal text-base hover:underline underline-offset-8">
+        {component.title}
+      </div>
+    </Link>
+  ))}
+</div>
+); };
+
+<ComponentsList />

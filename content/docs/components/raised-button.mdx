@@ -1,0 +1,77 @@
+---
+title: Raised Button
+description: A beautiful 3D raised button with customizable colors and dynamic text contrast.
+---
+
+<ComponentPreview
+  code={`<RaisedButton>Default</RaisedButton>
+<RaisedButton color="#3b82f6">Blue</RaisedButton>
+<RaisedButton color="#ef4444">Red</RaisedButton>
+<RaisedButton color="#10b981">Green</RaisedButton>
+<RaisedButton color="#8b5cf6">Purple</RaisedButton>`}
+>
+  <RaisedButton>Default</RaisedButton>
+  <RaisedButton color="#3b82f6">Blue</RaisedButton>
+  <RaisedButton color="#ef4444">Red</RaisedButton>
+  <RaisedButton color="#10b981">Green</RaisedButton>
+  <RaisedButton color="#8b5cf6">Purple</RaisedButton>
+</ComponentPreview>
+
+<ComponentPreview
+  code={`<RaisedButton size="sm">Small</RaisedButton>
+<RaisedButton size="default">Default</RaisedButton>
+<RaisedButton size="lg">Large</RaisedButton>`}
+>
+  <RaisedButton size="sm">Small</RaisedButton>
+  <RaisedButton size="default">Default</RaisedButton>
+  <RaisedButton size="lg">Large</RaisedButton>
+</ComponentPreview>
+
+## Installation
+
+<Tabs defaultValue="automatic" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="automatic">Automatic</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+{" "}
+<TabsContent value="automatic">
+  <InstallCommand component="raised-button" />
+</TabsContent>
+
+  <TabsContent value="manual">
+
+Copy and paste the following code into your project.
+
+<SourceCode
+  filePath="registry/new-york/ui/raised-button.tsx"
+  title="components/ui/raised-button.tsx"
+/>
+
+<SourceCode
+  filePath="lib/utils/colorUtils.ts"
+  title="lib/utils/colorUtils.ts"
+/>
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { RaisedButton } from "@/components/ui/raised-button";
+
+export default function Example() {
+  return <RaisedButton>Click me</RaisedButton>;
+}
+```
+
+## Props
+
+| Prop      | Type                                | Default   | Description                           |
+| --------- | ----------------------------------- | --------- | ------------------------------------- |
+| size      | "sm" \| "default" \| "lg" \| "icon" | "default" | Size of the button                    |
+| color     | string                              | undefined | Custom color (hex, rgb, or CSS color) |
+| disabled  | boolean                             | false     | Whether the button is disabled        |
+| className | string                              | undefined | Additional CSS classes                |

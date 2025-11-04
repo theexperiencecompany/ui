@@ -1,0 +1,107 @@
+---
+title: Installation
+description: How to install and configure Gaia UI in your project.
+---
+
+## Requirements
+
+- Node.js 18.17 or later
+- Next.js 13.4 or later
+- Tailwind CSS
+
+## Initialize Your Project
+
+If you don't have a Next.js project yet, create one:
+
+```bash
+npx create-next-app@latest my-app --typescript --tailwind --app
+cd my-app
+```
+
+## Install Dependencies
+
+Gaia UI uses the following dependencies:
+
+```bash
+npm install class-variance-authority clsx tailwind-merge lucide-react
+npm install -D @types/node
+```
+
+## Configure Path Aliases
+
+Add the following to your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+```
+
+## Configure Tailwind CSS
+
+Update your `tailwind.config.ts`:
+
+```ts
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+export default config;
+```
+
+## Add Utility Functions
+
+Create a `lib/utils.ts` file:
+
+```ts
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+## Install Components
+
+Now you can start installing components. For example, to install the Raised Button:
+
+```bash
+npx shadcn@latest add https://ui.gaia.com/r/raised-button.json
+```
+
+Or copy the component code directly from the [documentation](/docs/components/raised-button).
+
+## Start Using Components
+
+Import and use components in your app:
+
+```tsx
+import { RaisedButton } from "@/components/ui/raised-button";
+
+export default function App() {
+  return <RaisedButton>Click me</RaisedButton>;
+}
+```
+
+## Next Steps
+
+- Browse the [component library](/docs/components/raised-button)
+- Learn about [theming and customization](/docs/theming)
+- Join our [community](https://github.com/heygaia/ui)
