@@ -1,11 +1,11 @@
 "use client";
 
-import { docsConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
+import { docsConfig } from "@/config/site";
+import { Check, ChevronLeft, ChevronRight, Copy } from "lucide-react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Copy, Check } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
 import { Footer } from "./footer";
 
 interface PageNavigationProps {
@@ -19,7 +19,6 @@ export function PageNavigation({
 }: PageNavigationProps) {
   const [copied, setCopied] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
   const handleCopyPage = async () => {
     try {
       const contentToCopy = markdownContent || window.location.href;

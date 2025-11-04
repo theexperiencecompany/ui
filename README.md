@@ -1,23 +1,38 @@
-# registry-template
+# GAIA Components Library
 
-You can use the `shadcn` CLI to run your own component registry. Running your own
-component registry allows you to distribute your custom components, hooks, pages, and
-other files to any React project.
+A collection of production-ready UI components designed specifically for building AI assistants and chatbots. These are the components we use at GAIA, now available for anyone building conversational interfaces.
 
-> [!IMPORTANT]  
-> This template uses Tailwind v4. For Tailwind v3, see [registry-template-v3](https://github.com/shadcn-ui/registry-template-v3).
+## Why This Library?
+
+Building a great chat or assistant interface requires more than just generic UI components. We've spent countless hours refining these components to handle the unique challenges of conversational UIs.
+
+Instead of reinventing the wheel, use the same battle-tested components that power GAIA.
 
 ## Getting Started
 
-This is a template for creating a custom registry using Next.js.
+All components are compatible with the `shadcn` CLI, making installation effortless:
 
-- The template uses a `registry.json` file to define components and their files.
-- The `shadcn build` command is used to build the registry.
-- The registry items are served as static files under `public/r/[name].json`.
-- The template also includes a route handler for serving registry items.
-- Every registry item are compatible with the `shadcn` CLI.
-- We have also added v0 integration using the `Open in v0` api.
+```bash
+npx shadcn@latest add https://ui.heygaia.io
+```
 
-## Documentation
+Or add individual components:
 
-Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+```bash
+npx shadcn@latest add https://ui.heygaia.io/r/raised-button.json
+```
+
+## Built With
+
+- **Next.js** - For the documentation and registry
+- **Tailwind CSS v4** - For styling
+- **TypeScript** - For type safety
+- **Radix UI** - For accessible primitives
+
+## Contributing
+
+Found a bug or have an idea for a new component? We'd love your contributions! This library is open source and built for the community.
+
+---
+
+Built with ❤️ by the GAIA team
