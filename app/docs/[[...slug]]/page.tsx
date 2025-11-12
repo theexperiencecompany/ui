@@ -4,10 +4,13 @@ import {
   generateSEO,
   generateArticleSchema,
   generateBreadcrumbSchema,
+  generateComponentSchema,
+  generateComponentSEO,
 } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { FaSpinner } from "react-icons/fa";
+import registry from "@/registry.json";
 
 interface PageProps {
   params: Promise<{
@@ -78,6 +81,27 @@ export default async function DocPage({ params }: PageProps) {
     url: slug.length === 0 ? "/docs" : `/docs/${slug.join("/")}`,
   });
 
+  // Check if this is a component page and generate component schema
+  const isComponentPage = slug.length === 2 && slug[0] === "components";
+  let componentSchema = null;
+
+  if (isComponentPage) {
+    const componentName = slug[1];
+    const registryItem = registry.items.find(
+      (item) => item.name === componentName
+    );
+
+    if (registryItem) {
+      componentSchema = generateComponentSchema({
+        name: registryItem.name,
+        title: registryItem.title,
+        description: registryItem.description,
+        url: `/docs/components/${componentName}`,
+        keywords: [componentName, registryItem.title],
+      });
+    }
+  }
+
   return (
     <>
       {/* JSON-LD Structured Data for better SEO */}
@@ -89,6 +113,12 @@ export default async function DocPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {componentSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(componentSchema) }}
+        />
+      )}
       <DocPageLayout
         title={metadata.title}
         description={metadata.description}
@@ -123,6 +153,26 @@ export async function generateMetadata({ params }: PageProps) {
 
   const { metadata } = docData;
   const url = slug.length === 0 ? "/docs" : `/docs/${slug.join("/")}`;
+
+  // Check if this is a component page
+  const isComponentPage = slug.length === 2 && slug[0] === "components";
+
+  if (isComponentPage) {
+    const componentName = slug[1];
+    const registryItem = registry.items.find(
+      (item) => item.name === componentName
+    );
+
+    if (registryItem) {
+      return generateComponentSEO({
+        name: registryItem.name,
+        title: registryItem.title,
+        description: registryItem.description,
+        dependencies: registryItem.dependencies || [],
+        url,
+      });
+    }
+  }
 
   return generateSEO({
     title: metadata.title,

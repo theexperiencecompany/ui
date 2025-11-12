@@ -39,22 +39,31 @@ export function generateSEO({
     title: pageTitle,
     description,
     keywords: [
+      "Gaia UI",
       "React",
       "Tailwind CSS",
       "UI Components",
       "Component Library",
       "Design System",
-      "Gaia UI",
+      "AI Assistant",
+      "Chatbot UI",
+      "Conversational Interface",
       "Next.js",
       "Radix UI",
       "TypeScript",
       "Accessible Components",
+      "Open Source",
+      "Free Components",
+      "Modern UI",
+      "Animation",
+      "Interactive Components",
       ...keywords,
     ],
     authors: authors?.map((name) => ({ name })) || [
-      { name: "Gaia", url: "https://github.com/heygaia" },
+      { name: "Gaia", url: "https://github.com/theexperiencecompany/gaia" },
+      { name: "The Experience Company", url: "https://experience.heygaia.io" },
     ],
-    creator: "Gaia",
+    creator: "The Experience Company",
     publisher: "Gaia",
     robots: noIndex
       ? {
@@ -123,7 +132,13 @@ export function generateOrganizationSchema() {
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.png`,
-    sameAs: [siteConfig.links.github],
+    description: siteConfig.description,
+    foundingDate: "2024",
+    sameAs: [
+      siteConfig.links.github,
+      siteConfig.links.twitter,
+      siteConfig.links.experienceCompany,
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
@@ -209,15 +224,28 @@ export function generateSoftwareSchema() {
     url: siteConfig.url,
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web Browser",
+    softwareVersion: "1.0",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      ratingCount: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
     author: {
       "@type": "Organization",
-      name: "Gaia",
+      name: "The Experience Company",
+      url: siteConfig.links.experienceCompany,
     },
+    screenshot: siteConfig.ogImage,
+    downloadUrl: siteConfig.links.github,
+    codeRepository: siteConfig.links.github,
+    programmingLanguage: ["TypeScript", "JavaScript", "React"],
+    keywords: siteConfig.keywords.join(", "),
   };
 }
 
@@ -235,6 +263,145 @@ export function generateBreadcrumbSchema(
       position: index + 1,
       name: item.name,
       item: `${siteConfig.url}${item.url}`,
+    })),
+  };
+}
+
+/**
+ * Generate JSON-LD structured data for a component
+ */
+export function generateComponentSchema({
+  name,
+  title,
+  description,
+  url,
+  keywords = [],
+}: {
+  name: string;
+  title: string;
+  description: string;
+  url: string;
+  dependencies?: string[];
+  keywords?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: title,
+    description,
+    url: `${siteConfig.url}${url}`,
+    codeRepository: `${siteConfig.links.github}/tree/main/registry/new-york/ui/${name}.tsx`,
+    programmingLanguage: "TypeScript",
+    runtimePlatform: "React",
+    targetProduct: {
+      "@type": "SoftwareApplication",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    keywords: [
+      ...keywords,
+      "React Component",
+      "UI Component",
+      "TypeScript",
+      "Tailwind CSS",
+      title,
+    ].join(", "),
+    license: "MIT",
+    author: {
+      "@type": "Organization",
+      name: "The Experience Company",
+      url: siteConfig.links.experienceCompany,
+    },
+  };
+}
+
+/**
+ * Generate SEO metadata specifically for component pages
+ */
+export function generateComponentSEO({
+  name,
+  title,
+  description,
+  dependencies = [],
+  url,
+}: {
+  name: string;
+  title: string;
+  description: string;
+  dependencies?: string[];
+  url: string;
+}) {
+  const keywords = [
+    title,
+    `${title} component`,
+    `React ${title}`,
+    name,
+    "React component",
+    "UI component",
+    "TypeScript component",
+    ...dependencies.map((dep) => dep.replace(/[@\/]/g, " ").trim()),
+  ];
+
+  return generateSEO({
+    title,
+    description,
+    url,
+    type: "article",
+    keywords,
+  });
+}
+
+/**
+ * Generate JSON-LD structured data for a collection of items (e.g., component list)
+ */
+export function generateItemListSchema({
+  name,
+  description,
+  url,
+  items,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  items: Array<{ name: string; url: string; description: string }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    description,
+    url: `${siteConfig.url}${url}`,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "SoftwareSourceCode",
+        name: item.name,
+        url: `${siteConfig.url}${item.url}`,
+        description: item.description,
+        programmingLanguage: "TypeScript",
+      },
+    })),
+  };
+}
+
+/**
+ * Generate JSON-LD structured data for FAQ
+ */
+export function generateFAQSchema(
+  faqs: Array<{ question: string; answer: string }>
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
     })),
   };
 }
