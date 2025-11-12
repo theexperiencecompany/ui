@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Raised Button",
   "description": "A beautiful 3D raised button with customizable colors and dynamic text contrast.",
-  "dependencies": ["class-variance-authority"],
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "files": [
     {
       "path": "registry/new-york/ui/raised-button.tsx",

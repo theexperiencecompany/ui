@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { RaisedButton } from "./raised-button";
+import { RaisedButton } from "@/registry/new-york/ui/raised-button";
 
 export interface NavbarMenuLink {
   label: string;

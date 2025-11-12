@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "gaia ui",
+  "name": "gaia",
   "homepage": "https://ui.heygaia.io",
   "items": [
     {
@@ -21,19 +21,88 @@
       ]
     },
     {
+      "name": "navbar-menu",
+      "type": "registry:ui",
+      "title": "Navbar Menu",
+      "description": "A beautiful animated dropdown menu for navigation with support for icons, descriptions, and custom layouts.",
+      "dependencies": ["motion", "next"],
+      "registryDependencies": ["raised-button"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/navbar-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars-button",
+      "type": "registry:ui",
+      "title": "GitHub Stars Button",
+      "description": "A beautiful button that displays your GitHub repository's star count with real-time data fetching.",
+      "dependencies": ["@radix-ui/react-icons"],
+      "registryDependencies": ["raised-button"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/github-stars-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "author-tooltip",
       "type": "registry:ui",
       "title": "Author Tooltip",
       "description": "An interactive avatar with tooltip showing author information and social links.",
-      "dependencies": [
-        "@radix-ui/react-avatar",
-        "@radix-ui/react-tooltip",
-        "lucide-react"
-      ],
-      "registryDependencies": ["avatar", "tooltip"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
       "files": [
         {
           "path": "registry/new-york/ui/author-tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "link-preview",
+      "type": "registry:ui",
+      "title": "Link Preview",
+      "description": "An interactive link component with rich preview tooltip showing website metadata like title, description, and images.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/ui/link-preview.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "search-results-tabs",
+      "type": "registry:ui",
+      "title": "Search Results Tabs",
+      "description": "A beautiful component for displaying search results with web pages, images, and news in an organized, interactive layout.",
+      "dependencies": ["framer-motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/ui/search-results-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message-bubble",
+      "type": "registry:ui",
+      "title": "iOS Message Bubbles",
+      "description": "Beautiful iOS-style message bubbles with authentic iMessage appearance, message grouping, and tail effects.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/ui/message-bubble.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york/ui/message-bubble.css",
           "type": "registry:ui"
         }
       ]
@@ -44,7 +113,7 @@
       "title": "Weather Card",
       "description": "A beautiful, interactive weather card component with forecast, detailed metrics, and multiple weather conditions support.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "dropdown-menu", "tooltip"],
+      "registryDependencies": [],
       "files": [
         {
           "path": "registry/new-york/ui/weather-card.tsx",
@@ -57,6 +126,23 @@
         {
           "path": "registry/new-york/ui/weather-icons.tsx",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slash-command-dropdown",
+      "type": "registry:ui",
+      "title": "Slash Command Dropdown",
+      "description": "A slash command dropdown for selecting tools and actions with categorization and search.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/slash-command-dropdown.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/utils/tool-icons.tsx",
+          "type": "registry:lib"
         }
       ]
     }

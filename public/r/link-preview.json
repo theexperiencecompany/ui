@@ -4,8 +4,10 @@
   "type": "registry:ui",
   "title": "Link Preview",
   "description": "An interactive link component with rich preview tooltip showing website metadata like title, description, and images.",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["tooltip"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/ui/link-preview.tsx",

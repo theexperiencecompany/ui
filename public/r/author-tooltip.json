@@ -5,11 +5,9 @@
   "title": "Author Tooltip",
   "description": "An interactive avatar with tooltip showing author information and social links.",
   "dependencies": [
-    "@radix-ui/react-avatar",
-    "@radix-ui/react-tooltip",
     "lucide-react"
   ],
-  "registryDependencies": ["avatar", "tooltip"],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/ui/author-tooltip.tsx",

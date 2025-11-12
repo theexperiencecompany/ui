@@ -4,8 +4,10 @@
   "type": "registry:ui",
   "title": "Weather Card",
   "description": "A beautiful, interactive weather card component with forecast, detailed metrics, and multiple weather conditions support.",
-  "dependencies": ["lucide-react"],
-  "registryDependencies": ["button", "dropdown-menu", "tooltip"],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/ui/weather-card.tsx",

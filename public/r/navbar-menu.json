@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navbar-menu",
+  "type": "registry:ui",
+  "title": "Navbar Menu",
+  "description": "A beautiful animated dropdown menu for navigation with support for icons, descriptions, and custom layouts.",
+  "dependencies": [
+    "motion",
+    "next"
+  ],
+  "registryDependencies": [
+    "raised-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/navbar-menu.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

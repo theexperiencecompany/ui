@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slash-command-dropdown",
+  "type": "registry:ui",
+  "title": "Slash Command Dropdown",
+  "description": "A slash command dropdown for selecting tools and actions with categorization and search.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/slash-command-dropdown.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "lib/utils/tool-icons.tsx",
+      "type": "registry:lib"
+    }
+  ]
+}

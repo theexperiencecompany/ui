@@ -4,8 +4,11 @@
   "type": "registry:ui",
   "title": "Search Results Tabs",
   "description": "A beautiful component for displaying search results with web pages, images, and news in an organized, interactive layout.",
-  "dependencies": ["framer-motion", "lucide-react"],
-  "registryDependencies": ["button", "popover", "skeleton"],
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/ui/search-results-tabs.tsx",
