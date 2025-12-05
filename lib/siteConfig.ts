@@ -4,7 +4,7 @@
 export const siteConfig = {
   name: "GAIA UI",
   url: "https://ui.heygaia.io",
-  ogImage: "https://ui.heygaia.io/og-image.webp",
+  ogImage: "https://ui.heygaia.io/og-image.png",
   description:
     "Beautiful, accessible React components from the GAIA AI assistant project. Free and open source UI library built with Radix UI and Tailwind CSS for building modern chatbots and AI interfaces.",
   tagline: "Open Source Components for AI Assistants",
