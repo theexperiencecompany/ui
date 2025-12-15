@@ -7,16 +7,16 @@
  * Uses design patterns from GAIA's notification system
  */
 
-import { cn } from "@/lib/utils";
+import type { FC } from "react";
 import {
 	AlertCircleIcon,
-	Tick02Icon,
 	Clock01Icon,
+	HugeiconsIcon,
 	LinkSquare02Icon,
 	Loading03Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { type FC } from "react";
+	Tick02Icon,
+} from "@/components/icons";
+import { cn } from "@/lib/utils";
 
 export type NotificationStatus = "unread" | "read" | "archived";
 export type ActionType = "redirect" | "api_call" | "workflow" | "modal";

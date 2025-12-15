@@ -2,8 +2,7 @@ import { TableOfContents } from "@/components/core/table-of-contents";
 import { PageNavigation } from "@/components/core/page-navigation";
 import { getNavigation } from "@/lib/navigation";
 import Link from "next/link";
-import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon, HugeiconsIcon } from "@/components/icons";
 import * as React from "react";
 
 interface TocEntry {

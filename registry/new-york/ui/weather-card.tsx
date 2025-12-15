@@ -6,8 +6,9 @@ import {
 	SunriseIcon,
 	SunsetIcon,
 	ThermometerIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
+
 import {
 	CloudAngledZapIcon,
 	CloudAngledRainIcon,

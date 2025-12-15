@@ -1,11 +1,8 @@
 "use client";
 
 import { EmailComposeCard } from "@/registry/new-york/ui/email-compose-card";
-import { useState } from "react";
 
 export default function EmailPreviewDefault() {
-	const [isSending, setIsSending] = useState(false);
-
 	return (
 		<div className="w-full max-w-lg">
 			<EmailComposeCard
@@ -15,9 +12,7 @@ export default function EmailPreviewDefault() {
 					to: ["team@example.com", "alice@example.com"],
 				}}
 				onSend={async (data) => {
-					setIsSending(true);
 					await new Promise((resolve) => setTimeout(resolve, 2000));
-					setIsSending(false);
 					console.log("Sent email:", data);
 					alert("Email sent! Check console for data.");
 				}}

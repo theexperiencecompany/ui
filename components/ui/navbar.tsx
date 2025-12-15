@@ -18,8 +18,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { siteConfig } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
 import type { NavSection } from "@/types/nav-item";
-import { StarIcon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { StarIcon, HugeiconsIcon } from "@/components/icons";
 import Image from "next/image";
 import { GitHub } from "@/components/icons/github";
 import { Kbd, KbdGroup } from "./kbd";
@@ -110,7 +109,10 @@ export function Navbar({ navigation }: NavbarProps) {
 								<NavigationMenuLink asChild>
 									<Link
 										href={siteConfig.links["feature-request"]}
-										className={cn(navigationMenuTriggerStyle())}
+										className={cn(
+											navigationMenuTriggerStyle(),
+											"text-foreground/60",
+										)}
 									>
 										New Component Request
 									</Link>
@@ -145,11 +147,11 @@ export function Navbar({ navigation }: NavbarProps) {
 								rel="noreferrer"
 							>
 								<GitHub className="h-4 w-4" />
-								<div className="flex items-center gap-0.5">
+								<div className="flex items-center gap-2">
 									<HugeiconsIcon
 										icon={StarIcon}
 										size={20}
-										className="fill-yellow-500 text-transparent"
+										className="text-yellow-500"
 									/>
 									{stars !== null && (
 										<span className="text-sm font-medium">

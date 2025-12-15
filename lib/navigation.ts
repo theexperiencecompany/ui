@@ -44,7 +44,7 @@ export function getNavigation(): NavSection[] {
 
   if (gettingStartedItems.length > 0) {
     sections.push({
-      title: "Getting Started",
+      title: "",
       items: gettingStartedItems,
     });
   }

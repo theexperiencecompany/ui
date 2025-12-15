@@ -8,8 +8,8 @@ import {
 	Flag02Icon,
 	Folder02Icon,
 	Tag01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 
 export type TodoPriority = "high" | "medium" | "low" | "none";
 

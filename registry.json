@@ -4,6 +4,19 @@
   "homepage": "https://ui.heygaia.io",
   "items": [
     {
+      "name": "icons",
+      "type": "registry:ui",
+      "title": "Icons",
+      "description": "Hugeicons wrapper for all components. Uses free icons by default - upgrade to Pro by changing imports.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "raised-button",
       "type": "registry:ui",
       "title": "Raised Button",
@@ -53,8 +66,7 @@
       "type": "registry:ui",
       "title": "Author Tooltip",
       "description": "An interactive avatar with tooltip showing author information and social links.",
-      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
-      "registryDependencies": [],
+      "registryDependencies": ["icons"],
       "files": [
         {
           "path": "registry/new-york/ui/author-tooltip.tsx",
@@ -67,8 +79,7 @@
       "type": "registry:ui",
       "title": "Link Preview",
       "description": "An interactive link component with rich preview tooltip showing website metadata like title, description, and images.",
-      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
-      "registryDependencies": [],
+      "registryDependencies": ["icons"],
       "files": [
         {
           "path": "registry/new-york/ui/link-preview.tsx",
@@ -81,8 +92,7 @@
       "type": "registry:ui",
       "title": "Email Compose Card",
       "description": "An AI-powered email composition card with recipient validation, smart inputs, and beautiful styling.",
-      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
-      "registryDependencies": [],
+      "registryDependencies": ["icons"],
       "files": [
         {
           "path": "registry/new-york/ui/email-compose-card.tsx",
@@ -95,8 +105,8 @@
       "type": "registry:ui",
       "title": "Search Results Tabs",
       "description": "A beautiful component for displaying search results with web pages, images, and news in an organized, interactive layout.",
-      "dependencies": ["framer-motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
-      "registryDependencies": [],
+      "dependencies": ["framer-motion"],
+      "registryDependencies": ["icons"],
       "files": [
         {
           "path": "registry/new-york/ui/search-results-tabs.tsx",
@@ -126,8 +136,7 @@
       "type": "registry:ui",
       "title": "Weather Card",
       "description": "A beautiful, interactive weather card component with forecast, detailed metrics, and multiple weather conditions support.",
-      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
-      "registryDependencies": [],
+      "registryDependencies": ["icons"],
       "files": [
         {
           "path": "registry/new-york/ui/weather-card.tsx",
@@ -148,7 +157,7 @@
       "type": "registry:ui",
       "title": "Slash Command Dropdown",
       "description": "A slash command dropdown for selecting tools and actions with categorization and search.",
-      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": ["icons"],
       "files": [
         {
           "path": "registry/new-york/ui/slash-command-dropdown.tsx",

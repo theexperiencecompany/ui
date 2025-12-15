@@ -6,8 +6,9 @@ import {
 	Tick02Icon,
 	Copy01Icon,
 	Download01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
+
 import { codeToHtml, type BundledLanguage } from "shiki";
 
 // Devicon class mapping for language icons

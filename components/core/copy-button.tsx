@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Tick02Icon, Copy01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Tick02Icon, Copy01Icon, HugeiconsIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { Globe02Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Globe02Icon, HugeiconsIcon } from "@/components/icons";
+
 import Image from "next/image";
 import { ReactNode, useEffect, useRef, useState } from "react";
 

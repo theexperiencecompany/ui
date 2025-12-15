@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Cancel01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Cancel01Icon, HugeiconsIcon } from "@/components/icons";
 
 import { cn } from "@/lib/utils";
 

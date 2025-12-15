@@ -1,8 +1,13 @@
 "use client";
 
 import { type FC } from "react";
-import { PlayIcon, FlashIcon, Loading03Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import {
+	PlayIcon,
+	FlashIcon,
+	Loading03Icon,
+	HugeiconsIcon,
+} from "@/components/icons";
+
 import { cn } from "@/lib/utils";
 
 // Tool category icons with colors

@@ -7,8 +7,9 @@ import {
 	File01Icon,
 	Upload01Icon,
 	FileUploadIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
+
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 

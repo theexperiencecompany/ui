@@ -1,49 +1,26 @@
-import type React from "react";
 import {
-	Notification03Icon,
-	InformationCircleIcon,
+	Brain02Icon,
+	Calendar03Icon,
 	CheckmarkCircle02Icon,
 	File02Icon,
-	SourceCodeCircleIcon,
-	Brain02Icon,
+	HugeiconsIcon,
 	Image02Icon,
-	Target02Icon,
+	InformationCircleIcon,
+	Layout01Icon,
+	Link01Icon,
 	Mail01Icon,
+	MapsIcon,
+	MessageMultiple02Icon,
+	Notification03Icon,
 	Search01Icon,
+	SourceCodeCircleIcon,
 	Sun03Icon,
 	TableIcon,
-	Calendar03Icon,
-	MapsIcon,
-	Layout01Icon,
-	MessageMultiple02Icon,
+	Target02Icon,
 	Task01Icon,
 	VideoReplayIcon,
-	Link01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-
-// Wrapper components for hugeicons to match IconProps interface
-const NotificationIcon: React.FC<IconProps> = ({
-	size = 20,
-	className,
-	color,
-}) => (
-	<HugeiconsIcon
-		icon={Notification03Icon}
-		size={size}
-		className={className}
-		color={color}
-	/>
-);
-
-const InfoIcon: React.FC<IconProps> = ({ size = 20, className, color }) => (
-	<HugeiconsIcon
-		icon={InformationCircleIcon}
-		size={size}
-		className={className}
-		color={color}
-	/>
-);
+} from "@/components/icons";
+import { IconSvgElement } from "@hugeicons/react";
 
 export interface IconProps {
 	size?: number;
@@ -56,7 +33,7 @@ export interface IconProps {
 
 // Category-specific icons with colors
 export interface IconConfig {
-	icon: any; // Using any to support both components and potential future image paths
+	icon: IconSvgElement;
 	bgColor: string;
 	iconColor: string;
 	isImage?: boolean;

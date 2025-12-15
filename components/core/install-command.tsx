@@ -3,8 +3,7 @@
 import { CopyButton } from "@/components/core/copy-button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { siteConfig } from "@/lib/siteConfig";
-import { ComputerTerminal01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { ComputerTerminal01Icon, HugeiconsIcon } from "@/components/icons";
 import * as React from "react";
 import { codeToHtml } from "shiki";
 

@@ -5,8 +5,8 @@ import {
 	ArrowDown01Icon,
 	ArrowLeft01Icon,
 	ArrowRight01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker";
 
 import { cn } from "@/lib/utils";

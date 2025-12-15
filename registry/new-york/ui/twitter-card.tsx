@@ -8,8 +8,8 @@ import {
 	Share01Icon,
 	MoreHorizontalIcon,
 	CheckmarkBadge02Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 export interface TwitterCardProps {

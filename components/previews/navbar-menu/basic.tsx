@@ -6,8 +6,8 @@ import {
 	Idea01Icon,
 	MapsIcon,
 	Message01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 
 export default function NavbarMenuBasic() {
 	const sections = [

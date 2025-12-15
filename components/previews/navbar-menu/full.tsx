@@ -18,8 +18,8 @@ import {
 	Message01Icon,
 	PencilIcon,
 	UserGroupIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 
 export default function NavbarMenuFull() {
 	const sections = [

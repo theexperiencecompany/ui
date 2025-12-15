@@ -1,8 +1,7 @@
 "use client";
 
 import type { FC, ReactNode } from "react";
-import { Tick02Icon, Loading03Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Tick02Icon, Loading03Icon, HugeiconsIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 export type EventStatus = "idle" | "loading" | "completed";

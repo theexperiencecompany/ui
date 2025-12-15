@@ -1,7 +1,6 @@
 import { generateSEO, generateSoftwareSchema } from "@/lib/seo";
 import { RaisedButton } from "@/registry/new-york/ui/raised-button";
-import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon, HugeiconsIcon } from "@/components/icons";
 import Link from "next/link";
 import { GitHub } from "@/components/icons/github";
 

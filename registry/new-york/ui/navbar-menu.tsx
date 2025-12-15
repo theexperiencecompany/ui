@@ -3,8 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import * as React from "react";
 import Image from "next/image";
-import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon, HugeiconsIcon } from "@/components/icons";
 
 import { cn } from "@/lib/utils";
 import { RaisedButton } from "@/registry/new-york/ui/raised-button";

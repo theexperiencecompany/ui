@@ -12,8 +12,9 @@ import {
 	Mail01Icon,
 	Loading03Icon,
 	Tick02Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
+
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";

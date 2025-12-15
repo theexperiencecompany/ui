@@ -4,8 +4,7 @@ import { InstallCommand } from "@/components/core/install-command";
 import { SourceCode } from "@/components/core/source-code";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { Download01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Download01Icon, HugeiconsIcon } from "@/components/icons";
 import type { MDXComponents } from "mdx/types";
 
 import { ComponentPreviewTooltip } from "@/registry/new-york/ui/component-preview-tooltip";

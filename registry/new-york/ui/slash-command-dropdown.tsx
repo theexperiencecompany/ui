@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef } from "react";
-import { Tag01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Tag01Icon, Cancel01Icon, HugeiconsIcon } from "@/components/icons";
+
 import { cn } from "@/lib/utils";
 import { getToolCategoryIcon, formatToolName } from "@/lib/utils/tool-icons";
 

@@ -6,8 +6,7 @@ import {
 } from "@/registry/new-york/ui/slash-command-dropdown";
 import { useState, useRef } from "react";
 import { Button } from "@heroui/react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { PlusSignIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, PlusSignIcon } from "@/components/icons";
 
 // Sample tools data
 const TOOLS = [
@@ -56,7 +55,7 @@ const TOOLS = [
 export default function SlashCommandDropdownPreview() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState("all");
-	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [selectedIndex] = useState(0);
 	const buttonRef = useRef<HTMLButtonElement>(null);
 
 	const matches: SlashCommandMatch[] = TOOLS.map((tool) => ({

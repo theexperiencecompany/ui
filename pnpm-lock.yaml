@@ -18,6 +18,9 @@ importers:
       '@heroui/react':
         specifier: ^2.8.5
         version: 2.8.5(@types/react@19.1.2)(framer-motion@12.23.24(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.11)
+      '@hugeicons-pro/core-solid-rounded':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@hugeicons/core-free-icons':
         specifier: ^2.0.0
         version: 2.0.0
@@ -971,6 +974,9 @@ packages:
       '@heroui/theme': '>=2.4.17'
       react: '>=18 || >=19.0.0-rc.0'
       react-dom: '>=18 || >=19.0.0-rc.0'
+
+  '@hugeicons-pro/core-solid-rounded@2.0.0':
+    resolution: {integrity: sha512-cFbqGsc+VYvIpi6dMEMPsFRSNPRZ5tQoTyMbs2502wvZgyf0xY1NmorBKd3qev21Dawymno+9XQ2bX5jbyT1WQ==}
 
   '@hugeicons/core-free-icons@2.0.0':
     resolution: {integrity: sha512-OSfv5k0iB0yG61dcfK7jcf00AIK8EXyQOgtcNJzSBFvm88n9VOelkxihZHJnNwDUFpO/jZI3vZSVp6i1dmRvJQ==}
@@ -6839,6 +6845,8 @@ snapshots:
       '@react-aria/focus': 3.21.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+
+  '@hugeicons-pro/core-solid-rounded@2.0.0': {}
 
   '@hugeicons/core-free-icons@2.0.0': {}
 

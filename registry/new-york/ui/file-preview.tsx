@@ -11,8 +11,8 @@ import {
 	Archive01Icon,
 	Loading03Icon,
 	Cancel01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 export interface UploadedFile {

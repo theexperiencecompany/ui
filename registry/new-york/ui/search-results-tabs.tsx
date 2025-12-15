@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe02Icon, News01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { Globe02Icon, News01Icon, HugeiconsIcon } from "@/components/icons";
+
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 

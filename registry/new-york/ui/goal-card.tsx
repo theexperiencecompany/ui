@@ -13,8 +13,8 @@ import {
 	CheckmarkCircle02Icon,
 	ArrowRight01Icon,
 	MoreVerticalIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 import { type FC } from "react";
 
 export type GoalStatus = "not_started" | "in_progress" | "completed";

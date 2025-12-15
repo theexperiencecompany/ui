@@ -15,8 +15,8 @@ import {
 	File01Icon,
 	Home01Icon,
 	Package01Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+	HugeiconsIcon,
+} from "@/components/icons";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 
