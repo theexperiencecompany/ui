@@ -17,6 +17,48 @@ Before you start, here's what you'll need to create:
 
 ---
 
+## Icons
+
+We use [Hugeicons](https://hugeicons.com) for all icons. The codebase supports both **Free (stroke)** and **Pro (solid)** icons.
+
+### Default: Free Icons
+
+Just run `pnpm install && pnpm dev` — free icons work out of the box. No license needed!
+
+### Production: Pro Icons
+
+The production website uses Pro (solid) icons. This is controlled by the `USE_PRO_ICONS` environment variable:
+
+```bash
+# Build with Pro icons (production)
+USE_PRO_ICONS=true pnpm build
+
+# Or use the shortcut
+pnpm build:pro
+```
+
+### Testing Pro Icons Locally
+
+If you have a Hugeicons Pro license:
+
+1. Add your license key to `.npmrc`:
+   ```
+   //npm.hugeicons.com/:_authToken=YOUR_LICENSE_KEY
+   ```
+
+2. Run with Pro icons:
+   ```bash
+   USE_PRO_ICONS=true pnpm dev
+   ```
+
+### How It Works
+
+- **Source code** always imports from `@hugeicons/core-free-icons`
+- **At build time**, when `USE_PRO_ICONS=true`, webpack swaps all free icon imports to `@hugeicons-pro/core-solid-rounded`
+- **Users who install registry components** always get free icons (the source code references free icons)
+
+---
+
 ## Step-by-Step Guide
 
 ### 1. Component Implementation

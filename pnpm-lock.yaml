@@ -18,9 +18,6 @@ importers:
       '@heroui/react':
         specifier: ^2.8.5
         version: 2.8.5(@types/react@19.1.2)(framer-motion@12.23.24(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwindcss@4.1.11)
-      '@hugeicons-pro/core-solid-rounded':
-        specifier: ^2.0.0
-        version: 2.0.0
       '@hugeicons/core-free-icons':
         specifier: ^2.0.0
         version: 2.0.0
@@ -190,6 +187,10 @@ importers:
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
+    optionalDependencies:
+      '@hugeicons-pro/core-solid-rounded':
+        specifier: ^2.0.0
+        version: 2.0.0
 
 packages:
 
@@ -6846,7 +6847,8 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@hugeicons-pro/core-solid-rounded@2.0.0': {}
+  '@hugeicons-pro/core-solid-rounded@2.0.0':
+    optional: true
 
   '@hugeicons/core-free-icons@2.0.0': {}
 

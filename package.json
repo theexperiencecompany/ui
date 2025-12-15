@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pro": "USE_PRO_ICONS=true next build",
     "start": "next start",
     "lint": "next lint",
     "type": "tsc --noEmit",
@@ -16,7 +17,6 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@heroui/react": "^2.8.5",
-    "@hugeicons-pro/core-solid-rounded": "^2.0.0",
     "@hugeicons/core-free-icons": "^2.0.0",
     "@hugeicons/react": "^1.1.1",
     "@mdx-js/loader": "^3.1.1",
@@ -81,5 +81,8 @@
       "@types/react": "19.1.2",
       "@types/react-dom": "19.1.2"
     }
+  },
+  "optionalDependencies": {
+    "@hugeicons-pro/core-solid-rounded": "^2.0.0"
   }
 }

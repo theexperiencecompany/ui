@@ -1,4 +1,6 @@
 // components/icons/index.ts
-// Website uses Pro solid icons for premium previews
+// Uses free icons by default
+// When USE_PRO_ICONS=true, webpack swaps to Pro icons at build time
+
 export { HugeiconsIcon } from "@hugeicons/react";
-export * from "@hugeicons-pro/core-solid-rounded";
+export * from "@hugeicons/core-free-icons";
