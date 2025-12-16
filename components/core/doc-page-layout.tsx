@@ -38,7 +38,7 @@ export function DocPageLayout({
 
 	return (
 		<main className="relative py-6 lg:gap-10 lg:py-8 flex-1 xl:flex xl:gap-10">
-			<div className="mx-auto w-full max-w-4xl min-w-0 flex-1">
+			<div className="mx-auto w-full max-w-4xl min-w-0 flex-1 pl-10">
 				{breadcrumbs.length > 0 && (
 					<nav className="flex items-center space-x-1 text-sm text-muted-foreground mb-4">
 						<Link

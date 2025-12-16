@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { Books02Icon, HugeiconsIcon } from "../icons";
 
 interface TocEntry {
 	id: string;
@@ -45,8 +46,11 @@ export function TableOfContents({ toc }: TableOfContentsProps) {
 	}
 
 	return (
-		<div className="space-y-2">
-			<p className="text-xs text-muted-foreground">On This Page</p>
+		<div>
+			<p className="text-xs text-muted-foreground font-medium inline-flex gap-1">
+				<HugeiconsIcon icon={Books02Icon} size={15} />
+				On This Page
+			</p>
 			<nav>
 				<ul className="m-0 list-none">
 					{toc.map((item, index) => (

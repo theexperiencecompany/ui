@@ -62,7 +62,6 @@ export default function Home() {
 							<RaisedButton
 								size="default"
 								color="#0080ff"
-								asChild
 								className="flex items-center"
 							>
 								Browse components
@@ -74,12 +73,7 @@ export default function Home() {
 							target="_blank"
 							rel="noreferrer"
 						>
-							<RaisedButton
-								size="icon"
-								color="#3b3b3b"
-								asChild
-								className="rounded-lg"
-							>
+							<RaisedButton size="icon" color="#3b3b3b" className="rounded-lg">
 								<GitHub className="h-6 w-6" />
 							</RaisedButton>
 						</Link>

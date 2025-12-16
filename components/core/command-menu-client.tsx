@@ -1,18 +1,13 @@
 "use client";
 
-import type { IconSvgElement } from "@hugeicons/react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import * as React from "react";
 import {
 	Download05Icon,
-	File01Icon,
 	GitPullRequestIcon,
-	Home01Icon,
 	Home09Icon,
 	HugeiconsIcon,
 	MapsIcon,
-	Package01Icon,
+	NoteIcon,
+	PackageOpenIcon,
 	ShapeCollectionIcon,
 	StatusIcon,
 	UserLove01Icon,
@@ -27,6 +22,10 @@ import {
 	CommandSeparator,
 } from "@/components/ui/command";
 import type { NavSection } from "@/types/nav-item";
+import type { IconSvgElement } from "@hugeicons/react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import * as React from "react";
 import { DiscordIcon, TwitterIcon } from "../icons/social-icons";
 
 // Map page titles to icons (same as sidebar)
@@ -100,12 +99,11 @@ export function CommandMenuClient({
 
 		// Check for page icons
 		const pageIcon = pageIcons[item.title];
-		if (pageIcon) {
+		if (pageIcon)
 			return <HugeiconsIcon icon={pageIcon} size={16} className="mr-2" />;
-		}
 
 		// Default: component icon
-		return <HugeiconsIcon icon={Package01Icon} size={16} className="mr-2" />;
+		return <HugeiconsIcon icon={PackageOpenIcon} size={16} className="mr-2" />;
 	};
 
 	return (
@@ -115,11 +113,11 @@ export function CommandMenuClient({
 				<CommandEmpty>No results found.</CommandEmpty>
 				<CommandGroup heading="Navigation">
 					<CommandItem onSelect={() => runCommand(() => router.push("/"))}>
-						<HugeiconsIcon icon={Home01Icon} size={16} className="mr-2" />
+						<HugeiconsIcon icon={Home09Icon} size={16} className="mr-2" />
 						<span>Home</span>
 					</CommandItem>
 					<CommandItem onSelect={() => runCommand(() => router.push("/docs"))}>
-						<HugeiconsIcon icon={File01Icon} size={16} className="mr-2" />
+						<HugeiconsIcon icon={NoteIcon} size={16} className="mr-2" />
 						<span>Documentation</span>
 					</CommandItem>
 					<CommandItem
@@ -158,11 +156,9 @@ export function CommandMenuClient({
 									key={item.href}
 									onSelect={() =>
 										runCommand(() => {
-											if (item.href.startsWith("http")) {
+											if (item.href.startsWith("http"))
 												window.open(item.href, "_blank");
-											} else {
-												router.push(item.href);
-											}
+											else router.push(item.href);
 										})
 									}
 								>
