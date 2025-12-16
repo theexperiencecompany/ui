@@ -203,6 +203,7 @@ export function NavbarWithMenu({
 
 	return (
 		<div className="min-h-[350px] w-full bg-zinc-950 p-4 flex items-start justify-center transition">
+			{/* biome-ignore lint/a11y/noStaticElementInteractions: Hover container for menu, not interactive content */}
 			<div
 				className="relative mx-auto w-screen max-w-4xl"
 				onMouseLeave={handleNavbarMouseLeave}

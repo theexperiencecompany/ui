@@ -47,7 +47,10 @@ export const FileDropzone: FC<FileDropzoneProps> = ({
 	const [files, setFiles] = useState<DroppedFile[]>([]);
 	const [error, setError] = useState<string | null>(null);
 
-	const generateId = () => Math.random().toString(36).substring(2, 9);
+	const generateId = useCallback(
+		() => Math.random().toString(36).substring(2, 9),
+		[],
+	);
 
 	const processFiles = useCallback(
 		(fileList: FileList | File[]) => {
@@ -89,7 +92,7 @@ export const FileDropzone: FC<FileDropzoneProps> = ({
 				onFilesDropped(updatedFiles);
 			}
 		},
-		[files, maxFiles, maxSize, multiple, onFilesDropped],
+		[files, maxFiles, maxSize, multiple, onFilesDropped, generateId],
 	);
 
 	const handleDragOver = useCallback(
@@ -143,6 +146,7 @@ export const FileDropzone: FC<FileDropzoneProps> = ({
 	return (
 		<div className={cn("space-y-3", className)}>
 			{/* Dropzone area */}
+			{/* biome-ignore lint/a11y/noStaticElementInteractions: Drag events on container, keyboard access via hidden file input */}
 			<div
 				onDragOver={handleDragOver}
 				onDragLeave={handleDragLeave}

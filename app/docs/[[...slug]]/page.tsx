@@ -38,7 +38,7 @@ export default async function DocPage({ params }: PageProps) {
 	const { metadata, toc, content } = docData;
 
 	// Dynamically import the MDX file
-	let MDXContent;
+	let MDXContent: React.ComponentType;
 	try {
 		const mdxPath = slug.length === 0 ? "index" : slug.join("/");
 		MDXContent = (await import(`@/content/docs/${mdxPath}.mdx`)).default;

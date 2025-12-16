@@ -78,7 +78,8 @@ export const TodoItem: FC<TodoItemProps> = ({
 		>
 			<div className="flex items-start gap-3">
 				{/* Checkbox */}
-				<div
+				<button
+					type="button"
 					onClick={(e) => {
 						e.stopPropagation();
 						onToggleComplete?.(id, !completed);
@@ -89,11 +90,12 @@ export const TodoItem: FC<TodoItemProps> = ({
 							? "border-zinc-400 bg-zinc-400 dark:border-zinc-500 dark:bg-zinc-500"
 							: `${priorityStyle.borderColor} border-dashed bg-transparent`,
 					)}
+					aria-label={completed ? "Mark as incomplete" : "Mark as complete"}
 				>
 					{completed && (
 						<HugeiconsIcon icon={Tick02Icon} size={12} className="text-white" />
 					)}
-				</div>
+				</button>
 
 				{/* Content */}
 				<div className="min-w-0 flex-1">
