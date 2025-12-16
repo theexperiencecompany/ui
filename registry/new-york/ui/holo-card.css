@@ -1,0 +1,199 @@
+/* HoloCard Animations and Styles */
+
+@keyframes holoSparkle {
+	0%,
+	100% {
+		opacity: 0.75;
+		filter: brightness(1.2) contrast(1.25);
+	}
+	5%,
+	8% {
+		opacity: 1;
+		filter: brightness(0.8) contrast(1.2);
+	}
+	13%,
+	16% {
+		opacity: 0.5;
+		filter: brightness(1.2) contrast(0.8);
+	}
+	35%,
+	38% {
+		opacity: 1;
+		filter: brightness(1) contrast(1);
+	}
+	55% {
+		opacity: 0.33;
+		filter: brightness(1.2) contrast(1.25);
+	}
+}
+
+@keyframes holoGradient {
+	0%,
+	100% {
+		opacity: 0.5;
+		background-position: 50% 50%;
+		filter: brightness(0.5) contrast(1);
+	}
+	5%,
+	9% {
+		background-position: 100% 100%;
+		opacity: 1;
+		filter: brightness(0.75) contrast(1.25);
+	}
+	13%,
+	17% {
+		background-position: 0% 0%;
+		opacity: 0.88;
+	}
+	35%,
+	39% {
+		background-position: 100% 100%;
+		opacity: 1;
+		filter: brightness(0.5) contrast(1);
+	}
+	55% {
+		background-position: 0% 0%;
+		opacity: 1;
+		filter: brightness(0.75) contrast(1.25);
+	}
+}
+
+.holo-card {
+	--holo-width: 320px;
+	--holo-height: 446px;
+
+	width: var(--holo-width);
+	height: var(--holo-height);
+	background-color: #211799;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 5% / 3.5%;
+	box-shadow:
+		-3px -3px 3px 0 rgba(38, 230, 247, 0.3),
+		3px 3px 3px 0 rgba(247, 89, 228, 0.3),
+		0 0 6px 2px rgba(255, 231, 89, 0.3),
+		0 35px 25px -15px rgba(0, 0, 0, 0.3);
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	transition: transform 0.3s ease;
+}
+
+/* Pseudo-elements for holographic effects */
+.holo-card::before,
+.holo-card::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-position: 0% 0%;
+	background-repeat: no-repeat;
+	background-size: 300% 300%;
+	mix-blend-mode: color-dodge;
+	opacity: 0.2;
+	z-index: 1;
+	background-image: linear-gradient(
+		115deg,
+		transparent 0%,
+		#54a29e 25%,
+		transparent 47%,
+		transparent 53%,
+		#a79d66 75%,
+		transparent 100%
+	);
+}
+
+/* Sparkles effect */
+.holo-card--sparkles::after {
+	background-image:
+		url("https://assets.codepen.io/13471/sparkles.gif"),
+		linear-gradient(
+			125deg,
+			rgba(255, 0, 132, 0.31) 15%,
+			rgba(252, 164, 0, 0.25) 30%,
+			rgba(255, 255, 0, 0.19) 40%,
+			rgba(0, 255, 138, 0.13) 60%,
+			rgba(0, 207, 255, 0.25) 70%,
+			rgba(204, 76, 250, 0.31) 85%
+		);
+	background-position: center;
+	background-size: 180%;
+	mix-blend-mode: color-dodge;
+	opacity: 1;
+	z-index: 1;
+}
+
+/* Active/hover state */
+.holo-card--active::before {
+	opacity: 1;
+	animation: none;
+	transition: none;
+	background-image: linear-gradient(
+		110deg,
+		transparent 25%,
+		#54a29e 48%,
+		#a79d66 52%,
+		transparent 75%
+	);
+}
+
+/* Animated state (default) */
+.holo-card--animated {
+	transition: transform 1s ease;
+}
+
+.holo-card--animated::before {
+	transition: all 1s ease;
+	animation: holoGradient 12s ease infinite;
+}
+
+.holo-card--animated::after {
+	transition: all 1s ease;
+	animation: holoSparkle 12s ease infinite;
+}
+
+/* Card flip container */
+.holo-card-container {
+	perspective: 1000px;
+	cursor: pointer;
+}
+
+.holo-card-container--static {
+	perspective: none;
+	cursor: default;
+}
+
+.holo-card-inner {
+	position: relative;
+	transition: transform 0.7s ease;
+	transform-style: preserve-3d;
+}
+
+.holo-card-inner--flipped {
+	transform: rotateY(180deg);
+}
+
+.holo-card-face {
+	position: absolute;
+	inset: 0;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.holo-card-face--back {
+	transform: rotateY(180deg);
+}
+
+/* Light mode adjustments */
+:root[data-theme="light"] .holo-card,
+.light .holo-card {
+	box-shadow:
+		-3px -3px 3px 0 rgba(38, 230, 247, 0.2),
+		3px 3px 3px 0 rgba(247, 89, 228, 0.2),
+		0 0 6px 2px rgba(255, 231, 89, 0.2),
+		0 35px 25px -15px rgba(0, 0, 0, 0.15);
+}

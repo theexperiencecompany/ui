@@ -17,6 +17,36 @@
 			]
 		},
 		{
+			"name": "holo-card",
+			"type": "registry:ui",
+			"title": "Holo Card",
+			"description": "An interactive 3D holographic profile card with tilt effects, sparkle animations, and flip functionality.",
+			"dependencies": ["react-parallax-tilt"],
+			"files": [
+				{
+					"path": "registry/new-york/ui/holo-card.tsx",
+					"type": "registry:ui"
+				},
+				{
+					"path": "registry/new-york/ui/holo-card.css",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "nested-menu",
+			"type": "registry:ui",
+			"title": "Nested Menu",
+			"description": "A hover-activated nested menu component for multi-level navigation with smooth animations.",
+			"dependencies": ["@radix-ui/react-popover"],
+			"files": [
+				{
+					"path": "registry/new-york/ui/nested-menu.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
 			"name": "raised-button",
 			"type": "registry:ui",
 			"title": "Raised Button",

@@ -1,0 +1,174 @@
+---
+title: Holo Card
+description: An interactive 3D holographic profile card with tilt effects, sparkle animations, and flip functionality.
+---
+
+<ComponentPreview name="holo-card/default" />
+
+## Color Variants
+
+The Holo Card supports customizable overlay colors and different background images for unique visual styles.
+
+<ComponentPreview name="holo-card/colors" />
+
+
+## Installation
+
+<Tabs defaultValue="automatic" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="automatic">Automatic</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+<TabsContent value="automatic">
+  <InstallCommand component="holo-card" />
+</TabsContent>
+
+  <TabsContent value="manual">
+
+Copy and paste the following code into your project.
+
+<SourceCode filePath="registry/new-york/ui/holo-card.tsx" />
+
+This component also requires the CSS file:
+
+<SourceCode filePath="registry/new-york/ui/holo-card.css" />
+
+Install the required dependencies:
+
+```bash
+npm install react-parallax-tilt
+```
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { HoloCard } from "@/components/ui/holo-card";
+
+const profileData = {
+  name: "John Doe",
+  subtitle: "The Innovator",
+  description: "Building the future one line of code at a time.",
+  primaryId: "00042",
+  secondaryInfo: "December 2024",
+  badge: "Premium",
+  backgroundImage: "https://example.com/background.jpg",
+  overlayColor: "#4f46e5",
+  overlayOpacity: 30,
+};
+
+export default function Example() {
+  return <HoloCard data={profileData} />;
+}
+```
+
+## Props
+
+### HoloCard
+
+| Prop         | Type                     | Default   | Description                                         |
+| ------------ | ------------------------ | --------- | --------------------------------------------------- |
+| data         | HoloCardDisplayData      | -         | Card display data (required)                        |
+| width        | number                   | 320       | Card width in pixels                                |
+| height       | number                   | 446       | Card height in pixels                               |
+| showSparkles | boolean                  | true      | Show sparkle animation effect                       |
+| forceSide    | "front" \| "back"        | undefined | Force card to show specific side (disables flip)   |
+| branding     | HoloCardBranding         | undefined | Custom branding (logos, icons)                      |
+| className    | string                   | undefined | Additional CSS classes                              |
+| onFlip       | (isFlipped: boolean) => void | undefined | Callback when card is flipped                  |
+
+### HoloCardDisplayData
+
+```typescript
+interface HoloCardDisplayData {
+  /** Primary name displayed on the card */
+  name: string;
+  /** Secondary text (e.g., personality phrase, tagline) */
+  subtitle?: string;
+  /** Extended description shown on the back of the card */
+  description?: string;
+  /** Primary identifier (e.g., user number, ID) */
+  primaryId?: string | number;
+  /** Secondary info (e.g., member since date) */
+  secondaryInfo?: string;
+  /** Background image URL */
+  backgroundImage?: string;
+  /** Badge/tag text (e.g., house name, role) */
+  badge?: string;
+  /** Overlay color for the card */
+  overlayColor?: string;
+  /** Overlay opacity (0-100) */
+  overlayOpacity?: number;
+}
+```
+
+### HoloCardBranding
+
+```typescript
+interface HoloCardBranding {
+  /** Primary logo image URL */
+  logo?: string;
+  /** Logo alt text */
+  logoAlt?: string;
+  /** Icon shown in various places */
+  icon?: string;
+  /** Icon alt text */
+  iconAlt?: string;
+}
+```
+
+## Features
+
+- **3D Tilt Effect**: Interactive parallax tilt on mouse move
+- **Holographic Animation**: Shimmering gradient effect with customizable colors
+- **Sparkle Effect**: Optional animated sparkle overlay
+- **Flip Animation**: Click to reveal the back of the card
+- **Customizable Branding**: Add your own logos and icons
+- **Color Overlays**: Apply custom color filters with adjustable opacity
+- **Responsive**: Customize width and height as needed
+- **Accessible**: Keyboard navigation and screen reader support
+
+## Examples
+
+### Static Card (No Flip)
+
+Display a card without flip functionality:
+
+```tsx
+<HoloCard data={profileData} forceSide="front" />
+```
+
+### Custom Branding
+
+Add your own logo and icon:
+
+```tsx
+<HoloCard
+  data={profileData}
+  branding={{
+    logo: "/my-logo.svg",
+    logoAlt: "My Brand",
+    icon: "/my-icon.svg",
+    iconAlt: "Brand Icon",
+  }}
+/>
+```
+
+### Without Sparkles
+
+Disable the sparkle animation for a cleaner look:
+
+```tsx
+<HoloCard data={profileData} showSparkles={false} />
+```
+
+### Custom Size
+
+Create smaller or larger cards:
+
+```tsx
+<HoloCard data={profileData} width={240} height={336} />
+```

@@ -3,6 +3,7 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import type { Metadata } from "next";
+import { Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -12,6 +13,13 @@ import {
 	generateSEO,
 	generateWebsiteSchema,
 } from "@/lib/seo";
+
+const instrumentSerif = Instrument_Serif({
+	weight: "400",
+	subsets: ["latin"],
+	variable: "--font-instrument-serif",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	...generateSEO(),
@@ -27,7 +35,11 @@ export default function RootLayout({
 	const websiteSchema = generateWebsiteSchema();
 
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html
+			lang="en"
+			suppressHydrationWarning
+			className={instrumentSerif.variable}
+		>
 			<head>
 				<link
 					rel="stylesheet"

@@ -64,10 +64,12 @@ export const TodoItem: FC<TodoItemProps> = ({
 	const completedSubtasks = subtasks.filter((s) => s.completed).length;
 
 	return (
-		<button
-			type="button"
+		// biome-ignore lint/a11y/useSemanticElements: Using div with role=button to avoid nested button hydration error (checkbox button inside)
+		<div
+			role="button"
+			tabIndex={0}
 			className={cn(
-				"group pointer-events-auto w-full text-left p-4 pl-5 mb-0 transition-all rounded-lg",
+				"group pointer-events-auto w-full text-left p-4 pl-5 mb-0 transition-all rounded-lg cursor-pointer",
 				isSelected
 					? "bg-blue-500/5 ring-2 ring-blue-500"
 					: "hover:bg-zinc-100 dark:hover:bg-zinc-800/70",
@@ -75,6 +77,12 @@ export const TodoItem: FC<TodoItemProps> = ({
 				className,
 			)}
 			onClick={() => onClick?.(id)}
+			onKeyDown={(e) => {
+				if (e.key === "Enter" || e.key === " ") {
+					e.preventDefault();
+					onClick?.(id);
+				}
+			}}
 		>
 			<div className="flex items-start gap-3">
 				{/* Checkbox */}
@@ -189,6 +197,6 @@ export const TodoItem: FC<TodoItemProps> = ({
 
 				<HugeiconsIcon icon={ArrowRight01Icon} size={16} />
 			</div>
-		</button>
+		</div>
 	);
 };

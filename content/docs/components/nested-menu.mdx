@@ -1,0 +1,241 @@
+---
+title: Nested Menu
+description: A hover-activated nested menu component for multi-level navigation with smooth animations.
+---
+
+<ComponentPreview name="nested-menu/default" />
+
+## Settings Style
+
+A comprehensive settings menu with multiple sections, submenus, and social links - similar to the GAIA app's settings menu.
+
+<ComponentPreview name="nested-menu/settings-style" />
+
+## Installation
+
+<Tabs defaultValue="automatic" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="automatic">Automatic</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+<TabsContent value="automatic">
+  <InstallCommand component="nested-menu" />
+</TabsContent>
+
+  <TabsContent value="manual">
+
+Copy and paste the following code into your project.
+
+<SourceCode filePath="registry/new-york/ui/nested-menu.tsx" />
+
+This component uses Radix UI primitives. Install the required dependencies:
+
+```bash
+npm install @radix-ui/react-popover
+```
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { NestedMenu } from "@/components/ui/nested-menu";
+import { Button } from "@/components/ui/button";
+import { Settings, ChevronRight } from "lucide-react";
+
+const menuSections = [
+  {
+    title: "Actions",
+    items: [
+      {
+        key: "settings",
+        label: "Settings",
+        icon: Settings,
+        onSelect: () => console.log("Settings clicked"),
+      },
+      {
+        key: "download",
+        label: "Download",
+        hasSubmenu: true,
+        submenuItems: [
+          { key: "mac", label: "macOS", onSelect: () => {} },
+          { key: "windows", label: "Windows", onSelect: () => {} },
+        ],
+      },
+    ],
+  },
+];
+
+export default function Example() {
+  return (
+    <NestedMenu
+      sections={menuSections}
+      trigger={<Button>Open Menu</Button>}
+      arrowIcon={ChevronRight}
+    />
+  );
+}
+```
+
+## Hook Usage
+
+For more control, use the `useNestedMenu` hook:
+
+```tsx
+import { useNestedMenu, NestedMenuTooltip } from "@/components/ui/nested-menu";
+
+function MyComponent() {
+  const resourcesMenu = useNestedMenu();
+
+  return (
+    <>
+      <button
+        onMouseEnter={resourcesMenu.handleMouseEnter}
+        onMouseLeave={resourcesMenu.handleMouseLeave}
+      >
+        Resources
+      </button>
+
+      <NestedMenuTooltip
+        isOpen={resourcesMenu.isOpen}
+        onOpenChange={resourcesMenu.setIsOpen}
+        itemRef={resourcesMenu.itemRef}
+        menuItems={[
+          { key: "docs", label: "Documentation", onSelect: () => {} },
+          { key: "blog", label: "Blog", onSelect: () => {} },
+        ]}
+        onMouseEnter={resourcesMenu.cancelClose}
+        onMouseLeave={resourcesMenu.handleMouseLeave}
+      />
+    </>
+  );
+}
+```
+
+## Props
+
+### NestedMenu
+
+| Prop          | Type                                     | Default   | Description                           |
+| ------------- | ---------------------------------------- | --------- | ------------------------------------- |
+| sections      | NestedMenuSectionProps[]                 | -         | Menu sections (required)              |
+| trigger       | React.ReactNode                          | -         | Trigger element (required)            |
+| iconClassName | string                                   | "h-4 w-4" | Icon className                        |
+| arrowIcon     | React.ComponentType                      | undefined | Arrow icon for submenu items          |
+| side          | "top" \| "right" \| "bottom" \| "left"   | "right"   | Menu placement                        |
+| align         | "start" \| "center" \| "end"             | "start"   | Alignment relative to trigger         |
+| sideOffset    | number                                   | 8         | Offset from trigger                   |
+| className     | string                                   | undefined | Container className                   |
+| open          | boolean                                  | undefined | Controlled open state                 |
+| onOpenChange  | (open: boolean) => void                  | undefined | Callback when open state changes      |
+
+### NestedMenuItem
+
+```typescript
+interface NestedMenuItem {
+  /** Unique key for the item */
+  key: string;
+  /** Display label */
+  label: string;
+  /** Icon component */
+  icon?: React.ComponentType<{ className?: string }>;
+  /** Click handler */
+  onSelect?: () => void;
+  /** Whether this item has a submenu */
+  hasSubmenu?: boolean;
+  /** Submenu items (if hasSubmenu is true) */
+  submenuItems?: NestedMenuItem[];
+  /** Color variant */
+  variant?: "default" | "danger";
+  /** Additional className for custom styling */
+  className?: string;
+  /** Icon color (CSS color value) */
+  iconColor?: string;
+  /** Separator after this item */
+  separator?: boolean;
+}
+```
+
+### NestedMenuSectionProps
+
+```typescript
+interface NestedMenuSectionProps {
+  /** Section title */
+  title?: string;
+  /** Items in this section */
+  items: NestedMenuItem[];
+  /** Show divider after section */
+  showDivider?: boolean;
+}
+```
+
+## Features
+
+- **Hover-Activated Submenus**: Smooth hover interactions with proper delays
+- **Accessible**: Full keyboard navigation support
+- **Sections & Dividers**: Group related items with optional titles
+- **Custom Icons**: Support for icon components with custom colors
+- **Danger Variant**: Destructive action styling
+- **Controlled & Uncontrolled**: Works both ways
+- **Radix UI Foundation**: Built on battle-tested primitives
+- **Light & Dark Mode**: Automatic theme support
+
+## Examples
+
+### Controlled Menu
+
+```tsx
+const [open, setOpen] = useState(false);
+
+<NestedMenu
+  sections={sections}
+  trigger={<Button>Menu</Button>}
+  open={open}
+  onOpenChange={setOpen}
+/>
+```
+
+### With Custom Icons Colors
+
+```tsx
+const sections = [
+  {
+    items: [
+      {
+        key: "twitter",
+        label: "Twitter",
+        icon: TwitterIcon,
+        iconColor: "#1da1f2",
+        onSelect: () => {},
+      },
+      {
+        key: "discord",
+        label: "Discord",
+        icon: DiscordIcon,
+        iconColor: "#5865F2",
+        onSelect: () => {},
+      },
+    ],
+  },
+];
+```
+
+### Danger Items
+
+```tsx
+const sections = [
+  {
+    items: [
+      {
+        key: "logout",
+        label: "Sign Out",
+        icon: LogoutIcon,
+        variant: "danger",
+        onSelect: () => {},
+      },
+    ],
+  },
+];
+```
