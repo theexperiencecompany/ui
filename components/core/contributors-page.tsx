@@ -1,123 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AuthorTooltip } from "@/registry/new-york/ui/author-tooltip";
-
-interface Contributor {
-	login: string;
-	avatar_url: string;
-	html_url: string;
-	contributions: number;
-}
-
-interface GitHubStats {
-	author?: { login: string };
-	weeks?: Array<{ a: number; d: number }>;
-	total: number;
-}
-
-interface ContributorStats {
-	login: string;
-	name: string | null;
-	avatar_url: string;
-	html_url: string;
-	contributions: number;
-	additions: number;
-	deletions: number;
-	commits: number;
-}
+import { useContributors } from "@/hooks/use-contributors";
 
 export function ContributorsPage() {
-	const [contributors, setContributors] = useState<ContributorStats[]>([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
-
-	useEffect(() => {
-		async function fetchContributors() {
-			try {
-				const response = await fetch(
-					"https://api.github.com/repos/heygaia/ui/contributors",
-				);
-				const data = await response.json();
-
-				// Handle rate limiting or non-array responses
-				if (!Array.isArray(data)) {
-					if (data.message?.includes("rate limit")) {
-						setError("GitHub API rate limit exceeded. Please try again later.");
-					} else if (data.message) {
-						setError(data.message);
-					} else {
-						setError("Failed to fetch contributors. Please try again later.");
-					}
-					setLoading(false);
-					return;
-				}
-
-				const contributorData = data as Contributor[];
-				const detailedStats = await Promise.all(
-					contributorData.slice(0, 20).map(async (contributor) => {
-						try {
-							const userResponse = await fetch(
-								`https://api.github.com/users/${contributor.login}`,
-							);
-							const userData = await userResponse.json();
-
-							const statsResponse = await fetch(
-								"https://api.github.com/repos/heygaia/ui/stats/contributors",
-							);
-							const statsData: GitHubStats[] = await statsResponse.json();
-							const userStats = statsData?.find(
-								(s) => s.author?.login === contributor.login,
-							);
-
-							const totalAdditions =
-								userStats?.weeks?.reduce((sum, week) => sum + week.a, 0) || 0;
-							const totalDeletions =
-								userStats?.weeks?.reduce((sum, week) => sum + week.d, 0) || 0;
-							const totalCommits =
-								userStats?.total || contributor.contributions;
-
-							return {
-								login: contributor.login,
-								name: userData.name,
-								avatar_url: contributor.avatar_url,
-								html_url: contributor.html_url,
-								contributions: contributor.contributions,
-								additions: totalAdditions,
-								deletions: totalDeletions,
-								commits: totalCommits,
-							};
-						} catch {
-							return {
-								login: contributor.login,
-								name: null,
-								avatar_url: contributor.avatar_url,
-								html_url: contributor.html_url,
-								contributions: contributor.contributions,
-								additions: 0,
-								deletions: 0,
-								commits: contributor.contributions,
-							};
-						}
-					}),
-				);
-
-				setContributors(detailedStats);
-			} catch (error) {
-				console.error("Error fetching contributors:", error);
-			} finally {
-				setLoading(false);
-			}
-		}
-
-		fetchContributors();
-	}, []);
+	const {
+		data: contributors = [],
+		isLoading,
+		error,
+		refetch,
+	} = useContributors();
 
 	return (
 		<>
-			{loading ? (
+			{isLoading ? (
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
 					{Array.from({ length: 10 }).map((_, i) => (
 						<div
@@ -131,11 +29,11 @@ export function ContributorsPage() {
 				</div>
 			) : error ? (
 				<div className="flex flex-col items-center justify-center py-12 text-center">
-					<div className="text-muted-foreground mb-4">{error}</div>
+					<div className="text-muted-foreground mb-4">{error.message}</div>
 					<div className="flex gap-3">
 						<button
 							type="button"
-							onClick={() => window.location.reload()}
+							onClick={() => refetch()}
 							className="px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
 						>
 							Try Again
