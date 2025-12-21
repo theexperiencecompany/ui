@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 import { NavbarWrapper } from "@/components/core/navbar-wrapper";
+import { QueryProvider } from "@/components/providers/query-provider";
 import {
 	generateOrganizationSchema,
 	generateSEO,
@@ -65,8 +66,10 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<NavbarWrapper />
-					{children}
+					<QueryProvider>
+						<NavbarWrapper />
+						{children}
+					</QueryProvider>
 				</ThemeProvider>
 			</body>
 		</html>
