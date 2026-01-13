@@ -38,7 +38,7 @@ export const CalendarEventCard: FC<CalendarEventCardProps> = ({
 	const finalOpacity = status === "completed" ? 0.5 : opacity;
 
 	const buttonColorClasses = {
-		primary: "bg-blue-500 hover:bg-blue-600 text-white",
+		primary: "bg-sky-500 hover:bg-sky-600 text-white",
 		danger: "bg-red-500 hover:bg-red-600 text-white",
 	};
 

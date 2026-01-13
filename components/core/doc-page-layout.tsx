@@ -38,7 +38,7 @@ export function DocPageLayout({
 
 	return (
 		<main className="relative py-6 lg:gap-10 lg:py-8 flex-1 xl:flex xl:gap-10">
-			<div className="mx-auto w-full max-w-4xl min-w-0 flex-1 pl-10">
+			<div className="mx-auto w-full max-w-2xl min-w-0 flex-1">
 				{breadcrumbs.length > 0 && (
 					<nav className="flex items-center space-x-1 text-sm text-muted-foreground mb-4">
 						<Link
@@ -91,7 +91,7 @@ export function DocPageLayout({
 					navigation={navigation}
 				/>
 			</div>
-			<div className="hidden text-sm xl:block w-[300px] shrink-0">
+			<div className="hidden text-sm xl:block w-[250px] shrink-0">
 				<div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] overflow-hidden pt-6">
 					<TableOfContents toc={toc} />
 				</div>

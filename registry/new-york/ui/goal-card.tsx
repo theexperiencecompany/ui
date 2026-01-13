@@ -83,7 +83,7 @@ export const GoalCard: FC<GoalCardProps> = ({
 		},
 		in_progress: {
 			label: "In Progress",
-			bgColor: "bg-blue-500/10 dark:bg-blue-500/20",
+			bgColor: "bg-sky-500/10 dark:bg-sky-500/20",
 			textColor: "text-blue-600 dark:text-blue-400",
 		},
 		completed: {

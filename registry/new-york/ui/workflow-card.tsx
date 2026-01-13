@@ -29,7 +29,7 @@ const defaultToolCategoryConfig: Record<string, ToolCategoryConfig> = {
 		iconColor: "text-orange-600 dark:text-orange-400",
 	},
 	development: {
-		bgColor: "bg-cyan-500/20",
+		bgColor: "bg-sky-500/20",
 		iconColor: "text-cyan-600 dark:text-cyan-400",
 	},
 	memory: {
@@ -49,7 +49,7 @@ const defaultToolCategoryConfig: Record<string, ToolCategoryConfig> = {
 		iconColor: "text-yellow-600 dark:text-yellow-400",
 	},
 	email: {
-		bgColor: "bg-blue-500/20",
+		bgColor: "bg-sky-500/20",
 		iconColor: "text-blue-600 dark:text-blue-400",
 	},
 	calendar: {
@@ -233,11 +233,11 @@ export const WorkflowCard: FC<WorkflowCardProps> = ({
 
 			{/* Title and description */}
 			<div>
-				<h3 className="line-clamp-2 text-lg font-medium text-zinc-900 dark:text-white">
+				<h3 className="line-clamp-2 text-start text-lg font-medium text-zinc-900 dark:text-white">
 					{title}
 				</h3>
 				{!showDescriptionAsTooltip && description && (
-					<div className="mt-1 line-clamp-2 min-h-8 flex-1 text-xs text-zinc-500 dark:text-zinc-500">
+					<div className="mt-1 line-clamp-2 text-start min-h-8 flex-1 text-xs text-zinc-500 dark:text-zinc-500">
 						{description}
 					</div>
 				)}
@@ -286,8 +286,8 @@ export const WorkflowCard: FC<WorkflowCardProps> = ({
 							className={cn(
 								"flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors",
 								buttonVariant === "solid"
-									? "bg-blue-500 text-white hover:bg-blue-600"
-									: "bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 dark:text-blue-400 dark:hover:bg-blue-500/20",
+									? "bg-sky-500 text-white hover:bg-sky-600"
+									: "bg-sky-500/10 text-blue-600 hover:bg-sky-500/20 dark:text-blue-400 dark:hover:bg-sky-500/20",
 								isLoading && "opacity-50 cursor-not-allowed",
 							)}
 						>

@@ -282,7 +282,7 @@ const customConfig: Record<string, ToolCategoryConfig> = {
 	},
 	google: {
 		icon: Google,
-		bgColor: "bg-blue-500/10",
+		bgColor: "bg-sky-500/10",
 		iconColor: "text-blue-600 dark:text-blue-400",
 	},
 	slack: {
@@ -324,7 +324,6 @@ export default function WorkflowCardDefault() {
 				totalExecutions={1234}
 				isActivated={true}
 				triggerLabel="9:00 AM Daily"
-				variant="user"
 				categoryConfig={customConfig}
 				onClick={() => console.log("Card clicked")}
 				onAction={() => console.log("Run workflow")}

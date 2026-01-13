@@ -36,18 +36,18 @@ export function ComponentPreviewClient({
 
 	return (
 		<div className={cn("my-6 w-full", className)} {...props}>
-			<div className="rounded-lg border overflow-visible">
+			<div className="rounded-lg border overflow-hidden">
 				<Tabs defaultValue="preview" className="w-full gap-0">
-					<TabsList className="bg-background rounded-none border-b p-0 w-full flex justify-start">
+					<TabsList className="bg-background rounded-t-lg rounded-b-none border-b p-0 w-full flex justify-start">
 						<TabsTrigger
 							value="preview"
-							className="bg-background data-[state=active]:bg-muted h-full rounded-none border-0 data-[state=active]:shadow-none px-5 font-normal shadow-none"
+							className="bg-background rounded-t-lg rounded-b-none data-[state=active]:bg-muted h-full rounded-none border-0 data-[state=active]:shadow-none px-5 font-normal shadow-none"
 						>
 							Preview
 						</TabsTrigger>
 						<TabsTrigger
 							value="code"
-							className="bg-background data-[state=active]:bg-muted h-full rounded-none border-0 data-[state=active]:shadow-none px-5 font-normal shadow-none"
+							className="bg-background rounded-t-lg rounded-b-none data-[state=active]:bg-muted h-full rounded-none border-0 data-[state=active]:shadow-none px-5 font-normal shadow-none"
 						>
 							Code
 						</TabsTrigger>

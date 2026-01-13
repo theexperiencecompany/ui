@@ -171,7 +171,7 @@ export const ModelSelector: FC<ModelSelectorProps> = ({
 													{model.name}
 												</span>
 												{model.isPro && (
-													<span className="rounded-full bg-blue-500/10 dark:bg-blue-500/20 px-1.5 py-0.5 text-[9px] font-bold text-blue-600 dark:text-blue-400">
+													<span className="rounded-full bg-sky-500/10 dark:bg-sky-500/20 px-1.5 py-0.5 text-[9px] font-bold text-blue-600 dark:text-blue-400">
 														PRO
 													</span>
 												)}

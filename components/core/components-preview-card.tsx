@@ -55,7 +55,7 @@ export const ComponentPreviewCard: FC<ComponentPreviewCardProps> = ({
 			className={cn("group relative flex flex-col gap-2", className)}
 		>
 			{/* Preview Area */}
-			<div className="relative w-full overflow-hidden rounded-xl bg-muted transition-all duration-300 aspect-video">
+			<div className="relative w-full overflow-hidden rounded-xl transition-all duration-300 aspect-video">
 				{isLoading ? (
 					<div className="absolute inset-0 flex items-center justify-center">
 						<div className="h-6 w-6 animate-spin rounded-full border-2 border-muted-foreground/20 border-t-muted-foreground" />

@@ -241,6 +241,27 @@
 					"type": "registry:ui"
 				}
 			]
+		},
+		{
+			"name": "tool-calls-section",
+			"type": "registry:ui",
+			"title": "Tool Calls Section",
+			"description": "An expandable section showing AI agent tool usage with icons, inputs, and outputs.",
+			"registryDependencies": ["icons"],
+			"files": [
+				{
+					"path": "registry/new-york/ui/tool-calls-section.tsx",
+					"type": "registry:ui"
+				},
+				{
+					"path": "registry/new-york/ui/compact-markdown.tsx",
+					"type": "registry:ui"
+				},
+				{
+					"path": "lib/utils/tool-icons.tsx",
+					"type": "registry:lib"
+				}
+			]
 		}
 	]
 }

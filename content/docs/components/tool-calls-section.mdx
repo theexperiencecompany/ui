@@ -1,0 +1,116 @@
+---
+title: Tool Calls Section
+description: An expandable section showing AI agent tool usage with icons, inputs, and outputs.
+---
+
+<ComponentPreview name="tool-calls-section/default" />
+
+## Usage in Gaia
+
+Shows a collapsible timeline of tools an AI agent used during a conversation, with stacked icons and expandable details for each call.
+
+## With Custom Icons
+
+Supports custom integration icons via URL and special agent categories like handoff and retrieve_tools.
+
+<ComponentPreview name="tool-calls-section/with-custom-icons" />
+
+## Installation
+
+<Tabs defaultValue="automatic" className="mt-4">
+  <TabsList>
+    <TabsTrigger value="automatic">Automatic</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+<TabsContent value="automatic">
+  <InstallCommand component="tool-calls-section" />
+</TabsContent>
+
+  <TabsContent value="manual">
+
+Copy and paste the following code into your project.
+
+<SourceCode filePath="registry/new-york/ui/tool-calls-section.tsx" />
+
+This component also requires:
+
+<SourceCode filePath="registry/new-york/ui/compact-markdown.tsx" />
+
+<SourceCode filePath="lib/utils/tool-icons.tsx" />
+
+No external dependencies required beyond the standard project setup.
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { ToolCallsSection } from "@/components/ui/tool-calls-section";
+
+const toolCalls = [
+  {
+    tool_name: "search_web",
+    tool_category: "search",
+    message: "Searched for 'React best practices'",
+    inputs: { query: "React best practices" },
+    output: "Found 10 relevant results.",
+  },
+  {
+    tool_name: "send_email",
+    tool_category: "gmail",
+    message: "Sent email to the team",
+  },
+];
+
+export default function Example() {
+  return <ToolCallsSection toolCalls={toolCalls} />;
+}
+```
+
+## Props
+
+### ToolCallsSection
+
+| Prop           | Type                                  | Default | Description                                   |
+| -------------- | ------------------------------------- | ------- | --------------------------------------------- |
+| toolCalls      | ToolCallEntry[]                       | -       | Array of tool call entries (required)         |
+| integrations   | Map\<string, IntegrationInfo\>        | -       | Optional lookup for custom integration icons  |
+| maxIconsToShow | number                                | 10      | Max icons in stacked display                  |
+| defaultExpanded| boolean                               | false   | Start with accordion expanded                 |
+| className      | string                                | -       | Custom container class                        |
+| iconSize       | number                                | 21      | Icon size in pixels                           |
+| renderIcon     | (call, size) => ReactNode             | -       | Custom icon renderer override                 |
+| renderContent  | (content) => ReactNode                | -       | Custom content renderer for inputs/outputs    |
+
+### ToolCallEntry Type
+
+```typescript
+interface ToolCallEntry {
+  tool_name: string;          // Name of the tool
+  tool_category: string;      // Category for icon lookup
+  message?: string;           // Human-readable description
+  show_category?: boolean;    // Show category label (default: true)
+  tool_call_id?: string;      // Unique identifier
+  inputs?: Record<string, unknown>; // Input parameters
+  output?: string;            // Tool output/result
+  icon_url?: string;          // Custom icon URL
+  integration_name?: string;  // Friendly integration name
+}
+
+interface IntegrationInfo {
+  iconUrl?: string;
+  name?: string;
+}
+```
+
+## Features
+
+- **Stacked Icons**: Unique category icons displayed with rotation effect
+- **Expandable Details**: Click to view inputs and outputs for each call
+- **Custom Icons**: Support for URL-based icons for custom integrations
+- **Built-in Categories**: Icons for search, gmail, calendar, github, memory, and more
+- **Agent Categories**: Special icons for handoff, retrieve_tools, and executor
+- **Fully Customizable**: Override icon and content rendering with custom functions
+- **Type-Safe**: All interfaces exported for TypeScript projects

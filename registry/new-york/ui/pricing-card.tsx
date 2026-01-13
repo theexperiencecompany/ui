@@ -1,7 +1,6 @@
 "use client";
 
 import type { FC, ReactNode } from "react";
-import Image from "next/image";
 import { CheckmarkCircle02Icon, HugeiconsIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { RaisedButton } from "@/registry/new-york/ui/raised-button";
@@ -40,8 +39,6 @@ export interface PricingCardProps {
 	isLoading?: boolean;
 	/** Accent color for button (CSS color value) */
 	accentColor?: string;
-	/** Background image URL */
-	backgroundImage?: string;
 	/** Additional CSS classes */
 	className?: string;
 }
@@ -65,8 +62,7 @@ export const PricingCard: FC<PricingCardProps> = ({
 	onButtonClick,
 	isDisabled = false,
 	isLoading = false,
-	accentColor = "#3b82f6",
-	backgroundImage,
+	accentColor = "#00bbff",
 	className,
 }) => {
 	const formattedPrice = formatPrice(price, currency);
@@ -89,22 +85,10 @@ export const PricingCard: FC<PricingCardProps> = ({
 		<div
 			className={cn(
 				"relative w-full overflow-hidden rounded-3xl",
-				"bg-zinc-100/80 dark:bg-zinc-900/50",
-				"backdrop-blur-sm",
+				"bg-white/10 backdrop-blur-sm",
 				className,
 			)}
 		>
-			{backgroundImage && (
-				<div className="absolute inset-0 z-0">
-					<Image
-						src={backgroundImage}
-						alt=""
-						fill
-						className="object-cover opacity-50 dark:opacity-30"
-					/>
-					<div className="absolute inset-0 bg-gradient-to-b from-transparent to-zinc-100/90 dark:to-zinc-900/90" />
-				</div>
-			)}
 			{/* Header Section */}
 			<div className="relative z-[1] flex flex-col gap-2 p-6 pb-4">
 				<div className="flex flex-row items-center justify-between">

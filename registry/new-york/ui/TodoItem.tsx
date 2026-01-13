@@ -71,7 +71,7 @@ export const TodoItem: FC<TodoItemProps> = ({
 			className={cn(
 				"group pointer-events-auto w-full text-left p-4 pl-5 mb-0 transition-all rounded-lg cursor-pointer",
 				isSelected
-					? "bg-blue-500/5 ring-2 ring-blue-500"
+					? "bg-sky-500/5 ring-2 ring-blue-500"
 					: "hover:bg-zinc-100 dark:hover:bg-zinc-800/70",
 				completed && "opacity-50",
 				className,

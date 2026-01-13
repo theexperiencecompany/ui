@@ -49,7 +49,7 @@ export const priorityConfig = {
 	},
 	low: {
 		textColor: "text-blue-500 dark:text-blue-400",
-		bgColor: "bg-blue-500/10 dark:bg-blue-400/10",
+		bgColor: "bg-sky-500/10 dark:bg-sky-400/10",
 		borderColor: "border-blue-500",
 	},
 	none: {

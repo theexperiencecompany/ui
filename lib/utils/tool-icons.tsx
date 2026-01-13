@@ -1,25 +1,21 @@
 import type { IconSvgElement } from "@hugeicons/react";
+import Image from "next/image";
 import {
 	Brain02Icon,
-	Calendar03Icon,
-	CheckmarkCircle02Icon,
+	CheckListIcon,
+	AlarmClockIcon,
+	ComputerProgramming01Icon,
 	File02Icon,
 	HugeiconsIcon,
 	Image02Icon,
 	InformationCircleIcon,
-	Layout01Icon,
 	Link01Icon,
-	Mail01Icon,
-	MapsIcon,
-	MessageMultiple02Icon,
 	Notification03Icon,
-	Search01Icon,
+	PackageOpenIcon,
 	SourceCodeCircleIcon,
-	Sun03Icon,
-	TableIcon,
+	SquareArrowUpRight02Icon,
 	Target02Icon,
-	Task01Icon,
-	VideoReplayIcon,
+	ToolsIcon,
 } from "@/components/icons";
 
 export interface IconProps {
@@ -33,146 +29,18 @@ export interface IconProps {
 
 // Category-specific icons with colors
 export interface IconConfig {
-	icon: IconSvgElement;
+	icon: IconSvgElement | string;
 	bgColor: string;
+	bgColorLight?: string; // Light mode background
 	iconColor: string;
 	isImage?: boolean;
 }
-
-// Tool category icon configs - Mapped to HugeIcons equivalents
-const iconConfigs: Record<string, IconConfig> = {
-	productivity: {
-		icon: CheckmarkCircle02Icon,
-		bgColor: "bg-emerald-500/20 backdrop-blur",
-		iconColor: "text-emerald-400",
-	},
-	documents: {
-		icon: File02Icon,
-		bgColor: "bg-orange-500/20 backdrop-blur",
-		iconColor: "text-orange-400",
-	},
-	development: {
-		icon: SourceCodeCircleIcon,
-		bgColor: "bg-cyan-500/20 backdrop-blur",
-		iconColor: "text-cyan-400",
-	},
-	memory: {
-		icon: Brain02Icon,
-		bgColor: "bg-indigo-500/20 backdrop-blur",
-		iconColor: "text-indigo-400",
-	},
-	creative: {
-		icon: Image02Icon,
-		bgColor: "bg-pink-500/20 backdrop-blur",
-		iconColor: "text-pink-400",
-	},
-	goal_tracking: {
-		icon: Target02Icon,
-		bgColor: "bg-emerald-500/20 backdrop-blur",
-		iconColor: "text-emerald-400",
-	},
-	notifications: {
-		icon: Notification03Icon,
-		bgColor: "bg-yellow-500/20 backdrop-blur",
-		iconColor: "text-yellow-400",
-	},
-	support: {
-		icon: InformationCircleIcon,
-		bgColor: "bg-blue-500/20 backdrop-blur",
-		iconColor: "text-blue-400",
-	},
-	general: {
-		icon: InformationCircleIcon,
-		bgColor: "bg-gray-500/20 backdrop-blur",
-		iconColor: "text-gray-400",
-	},
-	// Integration mappings
-	gmail: {
-		icon: Mail01Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	google_docs: {
-		icon: File02Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	googlesheets: {
-		icon: TableIcon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	search: {
-		icon: Search01Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	weather: {
-		icon: Sun03Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	notion: {
-		icon: Layout01Icon, // Using Layout as proxy
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	twitter: {
-		icon: MessageMultiple02Icon, // Proxy
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	linkedin: {
-		icon: Link01Icon, // Proxy
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	google_calendar: {
-		icon: Calendar03Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	github: {
-		icon: SourceCodeCircleIcon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	google_maps: {
-		icon: MapsIcon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	trello: {
-		icon: Task01Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	slack: {
-		icon: MessageMultiple02Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	zoom: {
-		icon: VideoReplayIcon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-	integrations: {
-		icon: Link01Icon,
-		bgColor: "bg-zinc-700",
-		iconColor: "text-zinc-200",
-	},
-};
-
-// Map aliases (e.g. calendar -> google_calendar)
-const iconAliases: Record<string, string> = {
-	calendar: "google_calendar",
-};
 
 /**
  * Normalize a category/integration name for icon lookup
  */
 const normalizeCategoryName = (name: string): string => {
+	if (!name) return "general";
 	return name
 		.toLowerCase()
 		.trim()
@@ -181,9 +49,216 @@ const normalizeCategoryName = (name: string): string => {
 		.replace(/^_|_$/g, "");
 };
 
+// Alias mapping for backwards compatibility
+const iconAliases: Record<string, string> = {
+	calendar: "google_calendar",
+};
+
+// Tool category icon configs - matches gaia repo pattern
+const iconConfigs: Record<string, IconConfig> = {
+	// Integration icons (use images)
+	gmail: {
+		icon: "/images/icons/gmail.svg",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	google_calendar: {
+		icon: "/images/icons/googlecalendar.webp",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	github: {
+		icon: "/images/icons/github.png",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	linear: {
+		icon: "/images/icons/linear.svg",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	slack: {
+		icon: "/images/icons/slack.svg",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	google_docs: {
+		icon: "/images/icons/google_docs.webp",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	googlesheets: {
+		icon: "/images/icons/googlesheets.webp",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	search: {
+		icon: "/images/icons/google.svg",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	weather: {
+		icon: "/images/icons/weather.webp",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	notion: {
+		icon: "/images/icons/notion.webp",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	twitter: {
+		icon: "/images/icons/twitter.webp",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	linkedin: {
+		icon: "/images/icons/linkedin.svg",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	reddit: {
+		icon: "/images/icons/reddit.svg",
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+		isImage: true,
+	},
+	figma: {
+		icon: "/images/icons/figma.svg",
+		bgColor: "bg-zinc-800",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-white",
+		isImage: true,
+	},
+	
+	// Category icons (use HugeIcons components)
+	todos: {
+		icon: CheckListIcon,
+		bgColor: "bg-emerald-500/20 backdrop-blur",
+		bgColorLight: "bg-emerald-500/20",
+		iconColor: "text-emerald-400",
+	},
+	reminders: {
+		icon: AlarmClockIcon,
+		bgColor: "bg-sky-500/20 backdrop-blur",
+		bgColorLight: "bg-sky-500/20",
+		iconColor: "text-blue-400",
+	},
+	documents: {
+		icon: File02Icon,
+		bgColor: "bg-orange-500/20 backdrop-blur",
+		bgColorLight: "bg-orange-500/20",
+		iconColor: "text-orange-400",
+	},
+	development: {
+		icon: SourceCodeCircleIcon,
+		bgColor: "bg-sky-500/20 backdrop-blur",
+		bgColorLight: "bg-sky-500/20",
+		iconColor: "text-cyan-400",
+	},
+	memory: {
+		icon: Brain02Icon,
+		bgColor: "bg-indigo-500/20 backdrop-blur",
+		bgColorLight: "bg-indigo-500/20",
+		iconColor: "text-indigo-400",
+	},
+	creative: {
+		icon: Image02Icon,
+		bgColor: "bg-pink-500/20 backdrop-blur",
+		bgColorLight: "bg-pink-500/20",
+		iconColor: "text-pink-400",
+	},
+	goal_tracking: {
+		icon: Target02Icon,
+		bgColor: "bg-emerald-500/20 backdrop-blur",
+		bgColorLight: "bg-emerald-500/20",
+		iconColor: "text-emerald-400",
+	},
+	notifications: {
+		icon: Notification03Icon,
+		bgColor: "bg-yellow-500/20 backdrop-blur",
+		bgColorLight: "bg-yellow-500/20",
+		iconColor: "text-yellow-400",
+	},
+	support: {
+		icon: InformationCircleIcon,
+		bgColor: "bg-sky-500/20 backdrop-blur",
+		bgColorLight: "bg-sky-500/20",
+		iconColor: "text-blue-400",
+	},
+	general: {
+		icon: InformationCircleIcon,
+		bgColor: "bg-gray-500/20 backdrop-blur",
+		bgColorLight: "bg-gray-500/20",
+		iconColor: "text-gray-400",
+	},
+	integrations: {
+		icon: Link01Icon,
+		bgColor: "bg-zinc-700",
+		bgColorLight: "bg-zinc-200",
+		iconColor: "text-zinc-200",
+	},
+	
+	// Agent tool call categories
+	handoff: {
+		icon: SquareArrowUpRight02Icon,
+		bgColor: "bg-sky-500/20 backdrop-blur",
+		bgColorLight: "bg-sky-500/20",
+		iconColor: "text-sky-400",
+	},
+	retrieve_tools: {
+		icon: PackageOpenIcon,
+		bgColor: "bg-indigo-500/20 backdrop-blur",
+		bgColorLight: "bg-indigo-500/20",
+		iconColor: "text-indigo-400",
+	},
+	executor: {
+		icon: ComputerProgramming01Icon,
+		bgColor: "bg-teal-500/20 backdrop-blur",
+		bgColorLight: "bg-teal-500/20",
+		iconColor: "text-teal-400",
+	},
+	unknown: {
+		icon: ToolsIcon,
+		bgColor: "bg-zinc-500/20 backdrop-blur",
+		bgColorLight: "bg-zinc-500/20",
+		iconColor: "text-zinc-400",
+	},
+};
+
+/**
+ * Get icon for a tool category with optional URL-based icon fallback.
+ * Supports built-in categories and custom integration icons via iconUrl.
+ */
 export const getToolCategoryIcon = (
 	category: string,
 	iconProps: Partial<IconProps> & { showBackground?: boolean } = {},
+	iconUrl?: string | null,
 ) => {
 	const { showBackground = true, ...restProps } = iconProps;
 
@@ -219,21 +294,50 @@ export const getToolCategoryIcon = (
 		}
 	}
 
-	if (!config) return null;
+	// If no predefined config found, try iconUrl fallback for custom integrations
+	if (!config) {
+		if (iconUrl) {
+			const iconElement = (
+				<Image
+					alt={`${category} Icon`}
+					width={defaultProps.width}
+					height={defaultProps.height}
+					className={`${restProps.className || ""} aspect-square object-contain`}
+					src={iconUrl}
+				/>
+			);
+			return showBackground ? (
+				<div className="rounded-lg p-1 bg-zinc-700 dark:bg-zinc-700">{iconElement}</div>
+			) : (
+				iconElement
+			);
+		}
+		return null;
+	}
 
-	const IconComponent = config.icon;
-
-	const iconElement = (
+	// Render image or component icon
+	const iconElement = config.isImage ? (
+		<Image
+			alt={`${category} Icon`}
+			width={defaultProps.width}
+			height={defaultProps.height}
+			className={`${restProps.className || ""} aspect-square object-contain`}
+			src={config.icon as string}
+		/>
+	) : (
 		<HugeiconsIcon
-			icon={IconComponent}
+			icon={config.icon as IconSvgElement}
 			size={defaultProps.size}
 			className={restProps.className || config.iconColor}
 		/>
 	);
 
 	// Return with or without background based on showBackground prop
+	// Using dark: prefix for proper light/dark mode support
 	return showBackground ? (
-		<div className={`rounded-lg p-1 ${config.bgColor}`}>{iconElement}</div>
+		<div className={`rounded-lg p-1 ${config.bgColorLight || config.bgColor} dark:${config.bgColor}`}>
+			{iconElement}
+		</div>
 	) : (
 		iconElement
 	);

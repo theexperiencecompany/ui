@@ -124,4 +124,8 @@ export const mainNav = [
 		title: "Components",
 		href: "/docs/components",
 	},
+	{
+		title: "Gallery",
+		href: "/docs/gallery",
+	},
 ];

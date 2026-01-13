@@ -123,7 +123,7 @@ export const NotificationCard: FC<NotificationCardProps> = ({
 								{title}
 							</h3>
 							{isUnread && (
-								<div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
+								<div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
 							)}
 						</div>
 
@@ -180,7 +180,7 @@ export const NotificationCard: FC<NotificationCardProps> = ({
 										className={cn(
 											"flex items-center gap-1.5 rounded-lg px-4 py-1.5 text-xs font-normal transition",
 											action.style === "primary"
-												? "bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 dark:text-blue-400 dark:hover:bg-blue-500/20"
+												? "bg-sky-500/10 text-blue-600 hover:bg-sky-500/20 dark:text-blue-400 dark:hover:bg-sky-500/20"
 												: action.style === "danger"
 													? "bg-red-500/10 text-red-600 hover:bg-red-500/20 dark:text-red-400 dark:hover:bg-red-500/20"
 													: "bg-zinc-200/50 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-700 dark:bg-zinc-800/50 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-300",

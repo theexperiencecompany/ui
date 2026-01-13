@@ -167,7 +167,7 @@ export const TwitterCard: FC<TwitterCardProps> = ({
 			<div className="mt-4 flex items-center justify-between text-zinc-500 dark:text-zinc-400">
 				<button
 					type="button"
-					className="flex items-center gap-1.5 rounded-full p-2 hover:bg-blue-50 hover:text-blue-500 dark:hover:bg-blue-900/20"
+					className="flex items-center gap-1.5 rounded-full p-2 hover:bg-sky-50 hover:text-blue-500 dark:hover:bg-sky-900/20"
 					aria-label="Reply"
 				>
 					<HugeiconsIcon icon={Comment01Icon} size={20} />
@@ -195,7 +195,7 @@ export const TwitterCard: FC<TwitterCardProps> = ({
 				</button>
 				<button
 					type="button"
-					className="rounded-full p-2 hover:bg-blue-50 hover:text-blue-500 dark:hover:bg-blue-900/20"
+					className="rounded-full p-2 hover:bg-sky-50 hover:text-blue-500 dark:hover:bg-sky-900/20"
 					aria-label="Share"
 				>
 					<HugeiconsIcon icon={Share01Icon} size={20} />

@@ -107,7 +107,7 @@ export function ContributorsPage() {
 				</div>
 			)}
 
-			<div className="mt-12 p-6 rounded-lg bg-muted/50 border">
+			<div className="mt-12 p-6 rounded-2xl bg-muted">
 				<h2 className="text-lg font-semibold mb-2">Want to contribute?</h2>
 				<p className="text-sm text-muted-foreground">
 					Check out our{" "}

@@ -1,22 +1,23 @@
 "use client";
 
+import {
+	Download05Icon,
+	Home09Icon,
+	HugeiconsIcon,
+	ImageCompositionIcon,
+	MapsIcon,
+	ShapeCollectionIcon,
+	StatusIcon,
+	UserLove01Icon
+} from "@/components/icons";
+import { cn } from "@/lib/utils";
+import { ComponentPreviewTooltip } from "@/registry/new-york/ui/component-preview-tooltip";
+import type { NavSection } from "@/types/nav-item";
 import type { IconSvgElement } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type React from "react";
-import {
-	Download05Icon,
-	Home09Icon,
-	HugeiconsIcon,
-	MapsIcon,
-	ShapeCollectionIcon,
-	StatusIcon,
-	UserLove01Icon,
-} from "@/components/icons";
-import { cn } from "@/lib/utils";
-import { ComponentPreviewTooltip } from "@/registry/new-york/ui/component-preview-tooltip";
-import type { NavSection } from "@/types/nav-item";
 import { DiscordIcon, TwitterIcon } from "../icons/social-icons";
 
 interface DocsSidebarClientProps {
@@ -31,6 +32,7 @@ const pageIcons: Record<string, IconSvgElement> = {
 	"Status - Beta": StatusIcon,
 	Roadmap: MapsIcon,
 	Contributors: UserLove01Icon,
+	Gallery: ImageCompositionIcon,
 };
 
 const socialIcons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
