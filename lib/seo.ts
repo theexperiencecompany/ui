@@ -21,7 +21,7 @@ interface SEOProps {
 export function generateSEO({
 	title,
 	description = siteConfig.description,
-	image = siteConfig.ogImage,
+	image,
 	url,
 	type = "website",
 	publishedTime,
@@ -31,6 +31,12 @@ export function generateSEO({
 	noIndex = false,
 	canonical,
 }: SEOProps = {}): Metadata {
+	// Generate dynamic OG image URL based on page type
+	const ogImageUrl =
+		image ||
+		(title
+			? `${siteConfig.url}/api/og?type=docs&title=${encodeURIComponent(title)}`
+			: siteConfig.ogImage);
 	const pageTitle = title ? `${title} - ${siteConfig.name}` : siteConfig.name;
 	const pageUrl = url ? `${siteConfig.url}${url}` : siteConfig.url;
 	const canonicalUrl = canonical || pageUrl;
@@ -94,7 +100,7 @@ export function generateSEO({
 			siteName: siteConfig.name,
 			images: [
 				{
-					url: image,
+					url: ogImageUrl,
 					width: 1200,
 					height: 630,
 					alt: title || siteConfig.name,
@@ -107,7 +113,7 @@ export function generateSEO({
 			card: "summary_large_image",
 			title: pageTitle,
 			description,
-			images: [image],
+			images: [ogImageUrl],
 			creator: "@trygaia",
 			site: "@trygaia",
 		},
@@ -342,9 +348,13 @@ export function generateComponentSEO({
 		...dependencies.map((dep) => dep.replace(/[@/]/g, " ").trim()),
 	];
 
+	// Generate component-specific OG image URL
+	const componentOgImage = `${siteConfig.url}/api/og?type=component&name=${encodeURIComponent(name)}`;
+
 	return generateSEO({
 		title,
 		description,
+		image: componentOgImage,
 		url,
 		type: "article",
 		keywords,

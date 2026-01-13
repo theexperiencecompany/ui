@@ -12,11 +12,11 @@ export async function GalleryPage() {
 	const previews = await Promise.all(previewPromises);
 
 	return (
-		<div className="flex w-full flex-wrap items-start gap-8">
+		<div className="grid grid-cols-2 w-full flex-wrap items-center justify-center gap-8">
 			{previews.map(
 				({ name, PreviewComponent }) =>
 					PreviewComponent && (
-						<div key={name} className="w-fit">
+						<div key={name}>
 							<PreviewComponent />
 						</div>
 					),
