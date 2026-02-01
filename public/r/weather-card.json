@@ -4,7 +4,7 @@
   "title": "Weather Card",
   "description": "A beautiful, interactive weather card component with forecast, detailed metrics, and multiple weather conditions support.",
   "registryDependencies": [
-    "icons"
+    "https://ui.heygaia.io/r/icons.json"
   ],
   "files": [
     {

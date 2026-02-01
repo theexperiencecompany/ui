@@ -4,7 +4,7 @@
   "title": "Slash Command Dropdown",
   "description": "A slash command dropdown for selecting tools and actions with categorization and search.",
   "registryDependencies": [
-    "icons"
+    "https://ui.heygaia.io/r/icons.json"
   ],
   "files": [
     {

@@ -4,9 +4,9 @@
   "title": "Composer",
   "description": "A chat message input component with file attachments, auto-growing textarea, and tool integration support.",
   "registryDependencies": [
-    "icons",
-    "file-preview",
-    "slash-command-dropdown"
+    "https://ui.heygaia.io/r/icons.json",
+    "https://ui.heygaia.io/r/file-preview.json",
+    "https://ui.heygaia.io/r/slash-command-dropdown.json"
   ],
   "files": [
     {

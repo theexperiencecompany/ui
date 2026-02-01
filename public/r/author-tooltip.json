@@ -4,7 +4,7 @@
   "title": "Author Tooltip",
   "description": "An interactive avatar with tooltip showing author information and social links.",
   "registryDependencies": [
-    "icons"
+    "https://ui.heygaia.io/r/icons.json"
   ],
   "files": [
     {

@@ -9,9 +9,10 @@
   ],
   "files": [
     {
-      "path": "registry/new-york/ui/icons.tsx",
-      "content": "// registry/new-york/ui/icons.tsx\n// Free icons - upgrade to Pro by changing the import below\nexport * from \"@hugeicons/core-free-icons\";\nexport { HugeiconsIcon } from \"@hugeicons/react\";\n",
-      "type": "registry:ui"
+      "path": "components/icons.tsx",
+      "content": "// components/icons.tsx\n// Free icons - upgrade to Pro by changing the import below\nexport * from \"@hugeicons/core-free-icons\";\nexport { HugeiconsIcon } from \"@hugeicons/react\";\n",
+      "type": "registry:ui",
+      "target": "components/icons.tsx"
     }
   ],
   "type": "registry:ui"

@@ -8,7 +8,7 @@
     "next"
   ],
   "registryDependencies": [
-    "raised-button"
+    "https://ui.heygaia.io/r/raised-button.json"
   ],
   "files": [
     {

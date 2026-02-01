@@ -4,7 +4,7 @@
   "title": "Pricing Card",
   "description": "A beautiful glassmorphism pricing card component with nested card design, feature lists, and customizable accent colors.",
   "registryDependencies": [
-    "icons"
+    "https://ui.heygaia.io/r/icons.json"
   ],
   "files": [
     {

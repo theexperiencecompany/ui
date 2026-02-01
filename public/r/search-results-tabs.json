@@ -7,7 +7,7 @@
     "framer-motion"
   ],
   "registryDependencies": [
-    "icons"
+    "https://ui.heygaia.io/r/icons.json"
   ],
   "files": [
     {

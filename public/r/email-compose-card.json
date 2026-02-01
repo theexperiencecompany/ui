@@ -4,7 +4,7 @@
   "title": "Email Compose Card",
   "description": "An AI-powered email composition card with recipient validation, smart inputs, and beautiful styling.",
   "registryDependencies": [
-    "icons"
+    "https://ui.heygaia.io/r/icons.json"
   ],
   "files": [
     {
