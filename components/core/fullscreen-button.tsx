@@ -19,7 +19,7 @@ export function FullscreenButton({ children }: FullscreenButtonProps) {
 						<Button
 							size="icon"
 							variant={"secondary"}
-							className="min-h-6 min-w-6 transition-opacity hover:bg-white z-20 relative"
+							className="min-h-6 min-w-6 transition-opacity hover:bg-muted-foreground/20 z-20 relative"
 						>
 							<HugeiconsIcon icon={FullScreenIcon} size={12} />
 						</Button>

@@ -24,7 +24,7 @@ export function CopyButton({ value }: CopyButtonProps) {
 				<Button
 					size="icon"
 					variant={"secondary"}
-					className="min-h-6 min-w-6 transition-opacity hover:bg-white"
+					className="min-h-6 min-w-6 transition-opacity hover:bg-muted-foreground/20"
 					onClick={copy}
 				>
 					{copied ? (
